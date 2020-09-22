@@ -14,6 +14,9 @@ namespace Qwirkle_DD
         [STAThread]
         static void Main()
         {
+
+            Controllers.BolsaFicha fichas = new Controllers.BolsaFicha();
+            List<Controllers.Ficha> bolsaTotal = fichas.GetBolsaFichas();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Qwirkle());
