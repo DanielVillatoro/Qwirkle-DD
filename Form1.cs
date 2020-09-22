@@ -10,11 +10,35 @@ using System.Windows.Forms;
 
 namespace Qwirkle_DD
 {
-    public partial class Form1 : Form
+    public partial class Qwirkle : Form
     {
-        public Form1()
+        public Qwirkle()
         {
             InitializeComponent();
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
+            FormBorderStyle = FormBorderStyle.None;
+            WindowState = FormWindowState.Maximized;
+            TopMost = true;
+        }
+
+        private void Qwirkle_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Escape)
+            {
+                FormBorderStyle = FormBorderStyle.Sizable;
+                WindowState = FormWindowState.Normal    ;
+                TopMost = false;
+            }
         }
     }
 }
