@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -33,12 +34,13 @@ namespace Qwirkle_DD
 
         private void Qwirkle_KeyDown(object sender, KeyEventArgs e)
         {
-            if(e.KeyCode == Keys.Escape)
+            if (e.KeyCode == Keys.Escape)
             {
                 FormBorderStyle = FormBorderStyle.Sizable;
-                WindowState = FormWindowState.Normal    ;
+                WindowState = FormWindowState.Normal;
                 TopMost = false;
             }
         }
-    }
 }
+}
+
