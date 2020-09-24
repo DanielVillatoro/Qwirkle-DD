@@ -13,10 +13,80 @@ namespace Qwirkle_DD
 {
     public partial class Qwirkle : Form
     {
+        public List<Button> botonesHumano = new List<Button>();
+        public List<Button> botononesBrilliant = new List<Button>();
+        public List<Button> botonesSimple = new List<Button>();
+
+
         public Qwirkle()
         {
             InitializeComponent();
+            guardarBotones(fichasHuman,botonesHumano);
+            guardarBotones(fichasBrillianBot,botononesBrilliant);
+            guardarBotones(fichasSimpleBot,botonesSimple);
+            colocarFichas();
+        }
 
+        public void colocarFichas()
+        {
+            List<Controllers.Ficha> bolsaTotal = Controllers.BolsaFicha.GetBolsaFichas();
+            Controllers.Jugador jugador1 = new Controllers.Jugador();
+            jugador1.setFichasJugador(bolsaTotal);
+            List<Controllers.Ficha> fichasJugador1 = jugador1.fichasJugador;
+
+            Controllers.Jugador jugador2 = new Controllers.Jugador();
+            jugador2.setFichasJugador(bolsaTotal);
+            List<Controllers.Ficha> fichasJugador2 = jugador2.fichasJugador;
+
+
+            Controllers.Jugador jugador3 = new Controllers.Jugador();
+            jugador3.setFichasJugador(bolsaTotal);
+            List<Controllers.Ficha> fichasJugador3 = jugador3.fichasJugador;
+
+            int i = 0;
+            foreach (Controllers.Ficha ficha in fichasJugador1 ) {
+                botononesBrilliant[i].Text = ficha.forma;
+                botononesBrilliant[i].ForeColor = ficha.color;
+
+                i++;
+
+            }
+            i = 0;
+            foreach (Controllers.Ficha ficha in fichasJugador2)
+            {
+                botonesSimple[i].Text = ficha.forma;
+                botonesSimple[i].ForeColor = ficha.color;
+                i++;
+
+            }
+            i = 0;
+            foreach (Controllers.Ficha ficha in fichasJugador3)
+            {
+                botonesHumano[i].Text = ficha.forma;
+                botonesHumano[i].ForeColor = ficha.color;
+                i++;
+            }
+            
+            
+
+            string p = "ttt";
+
+        }
+
+        public void guardarBotones(TableLayoutPanel fichas, List<Button> lista)
+        {
+            int i = 0; int j = 0;
+            for (i = 0; i <= fichas.ColumnCount; i++)
+            {
+                for (j = 0; j <= fichas.RowCount; j++)
+                {
+                    Control c = fichas.GetControlFromPosition(i, j);
+                    if (c != null)
+                    {
+                        lista.Add((Button)c);
+                    }
+                }
+            }
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
@@ -36,7 +106,6 @@ namespace Qwirkle_DD
                     if (c != null)
                     {
                         c.Click += new EventHandler(button900_Click);
-                        Trace.WriteLine(c.ToString());
                     }
                 }
             }
@@ -100,10 +169,14 @@ namespace Qwirkle_DD
         {
             Button button = sender as Button;
             var row = tableLayoutPanel1.GetPositionFromControl(button);
-            button.Text = row.ToString();
-            label1.Text = row.ToString();
+            // aqui se escribe en el boton que se presione
+            //button.Text = row.ToString();
+            //label1.Text = row.ToString();
+            //Controllers.BolsaFicha fichas = new Controllers.BolsaFicha();
+
+            //List<Controllers.Ficha> bolsaTotal = fichas.GetBolsaFichas
         }
     }
 }
-}
+
 
