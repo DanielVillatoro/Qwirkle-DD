@@ -8,14 +8,16 @@ namespace Qwirkle_DD.Controllers
 {
     class Jugador
     {
-        private double puntaje { get; set; }
-        private string nombre { get; set; }
+        public double puntaje { get; set; }
+        public string nombre { get; set; }
         public List<Controllers.Ficha> fichasJugador { get; set; }
-        //public List<Controllers.Ficha> bolsaTotal { get; set; }
-
         public void setFichasJugador(List<Controllers.Ficha> bolsaTotal)
         {
             List<Controllers.Ficha> fJugador =new List<Controllers.Ficha>();
+            if (fichasJugador != null)
+            {
+                fJugador = fichasJugador;
+            }
             Random rnd = new Random();
             int i = 0;
             while (fJugador.Count < 6  && bolsaTotal.Count > 0)
@@ -26,7 +28,5 @@ namespace Qwirkle_DD.Controllers
             }
             fichasJugador = fJugador;
         }
-
-
     }
 }

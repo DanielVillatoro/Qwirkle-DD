@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,14 +9,14 @@ namespace Qwirkle_DD.Controllers
 {
     class BolsaFicha
     {
-        public List<Ficha> GetBolsaFichas()
+        public static List<Ficha> GetBolsaFichas()
         {
-            var colores = new List<string> { "red", "yellow", "green", "cyan", "magenta", "blue"};
+            var colores = new List<Color> { Color.Red, Color.Yellow, Color.Green,Color.Cyan,Color.Magenta,Color.Blue};
             var formas = new List<string> { "▲", "◆", "■", "●", "★", "❈" };
             List<Ficha> bolsa = new List<Ficha>();
             int count = 0;
             while (count < 3) {
-                foreach (string color in colores)
+                foreach (Color color in colores)
                 {
                     foreach (string forma in formas)
                     {
@@ -30,7 +31,7 @@ namespace Qwirkle_DD.Controllers
 
     class Ficha
     {
-        public string color { get; set; }
+        public Color color { get; set; }
         public string forma { get; set; }
     }
 }

@@ -105,5 +105,4 @@ namespace Qwirkle_DD
         }
     }
 }
-}
 
