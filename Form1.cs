@@ -44,28 +44,28 @@ namespace Qwirkle_DD
             List<Controllers.Ficha> fichasJugador3 = jugador3.fichasJugador;
 
             int i = 0;
-            foreach (Controllers.Ficha ficha in fichasJugador1 ) {
-                botononesBrilliant[i].Text = ficha.forma;
-                botononesBrilliant[i].ForeColor = ficha.color;
+            //foreach (Controllers.Ficha ficha in fichasJugador1 ) {
+            //    botononesBrilliant[i].Text = ficha.forma;
+            //    botononesBrilliant[i].ForeColor = ficha.color;
 
-                i++;
+            //    i++;
 
-            }
-            i = 0;
-            foreach (Controllers.Ficha ficha in fichasJugador2)
-            {
-                botonesSimple[i].Text = ficha.forma;
-                botonesSimple[i].ForeColor = ficha.color;
-                i++;
+            //}
+            //i = 0;
+            //foreach (Controllers.Ficha ficha in fichasJugador2)
+            //{
+            //    botonesSimple[i].Text = ficha.forma;
+            //    botonesSimple[i].ForeColor = ficha.color;
+            //    i++;
 
-            }
-            i = 0;
-            foreach (Controllers.Ficha ficha in fichasJugador3)
-            {
-                botonesHumano[i].Text = ficha.forma;
-                botonesHumano[i].ForeColor = ficha.color;
-                i++;
-            }
+            //}
+            //i = 0;
+            //foreach (Controllers.Ficha ficha in fichasJugador3)
+            //{
+            //    botonesHumano[i].Text = ficha.forma;
+            //    botonesHumano[i].ForeColor = ficha.color;
+            //    i++;
+            //}
             
             
 

@@ -12,19 +12,19 @@ namespace Qwirkle_DD.Controllers
 
 {
 
-    class BolsaFicha
+    public class BolsaFicha
 
     {
         public static List<Ficha> GetBolsaFichas()
         {
-            var colores = new List<Color> { Color.Red, Color.Yellow, Color.Green,Color.Cyan,Color.Magenta,Color.Blue};
+            var colores = new List<string> { "Red", "Yellow","Green","Cyan","Magenta","Blue"};
             var formas = new List<string> { "▲", "◆", "■", "●", "★", "❈" };
 
             List<Ficha> bolsa = new List<Ficha>();
 
             int count = 0;
             while (count < 3) {
-                foreach (Color color in colores)
+                foreach (string color in colores)
                 {
 
                     foreach (string forma in formas)
@@ -32,9 +32,7 @@ namespace Qwirkle_DD.Controllers
                     {
 
                         bolsa.Add(new Ficha() { color = color, forma = forma });
-
                     }
-
                 }
 
                 count++;
@@ -47,10 +45,10 @@ namespace Qwirkle_DD.Controllers
 
     }
 
-    class Ficha
+    public class Ficha
 
     {
-        public Color color { get; set; }
+        public string color { get; set; }
         public string forma { get; set; }
 
     }

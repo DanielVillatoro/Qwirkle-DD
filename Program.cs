@@ -19,7 +19,6 @@ namespace Qwirkle_DD
 
             Controllers.Juego juego = new Controllers.Juego();
             juego.IniciaJuego();
-
             //Controllers.BolsaFicha fichas = new Controllers.BolsaFicha();
             //List<Controllers.Ficha> bolsaTotal = fichas.GetBolsaFichas();
             //List<Controllers.Ficha> bolsaTotal = Controllers.BolsaFicha.GetBolsaFichas();

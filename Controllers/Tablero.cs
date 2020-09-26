@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Qwirkle_DD.Controllers
 {
-    class Tablero
+    public class Tablero
     {
         //private string ID { get; set; }
 
