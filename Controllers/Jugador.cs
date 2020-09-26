@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Qwirkle_DD.Controllers
 {
-    class Jugador
+    public class Jugador
     {
         public double puntaje { get; set; }
         public string nombre { get; set; }

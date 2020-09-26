@@ -14,66 +14,197 @@ namespace Qwirkle_DD
     public partial class Qwirkle : Form
     {
         public List<Button> botonesHumano = new List<Button>();
-        public List<Button> botononesBrilliant = new List<Button>();
+        public List<Button> botonesBrilliant = new List<Button>();
         public List<Button> botonesSimple = new List<Button>();
+        public string forma = "";
+        public string color;
+        public Button ultimaFicha;
+        public List<Button> colocadasHumano = new List<Button>();
+        public List<Button> colocadasSimple = new List<Button>();
+        public List<Button> colocadasBrilliant = new List<Button>();
+        public Controllers.Juego juego = new Controllers.Juego();
+        List<Controllers.Ficha> fichasJugador1 =  new List<Controllers.Ficha>();
+        List<Controllers.Ficha> fichasJugador3=  new List<Controllers.Ficha>();
+        List<Controllers.Ficha> fichasJugador2 = new List<Controllers.Ficha>();
+        int x;
+        int y;
+        Button fichaTocada;
+
+
 
 
         public Qwirkle()
         {
             InitializeComponent();
-            guardarBotones(fichasHuman,botonesHumano);
-            guardarBotones(fichasBrillianBot,botononesBrilliant);
-            guardarBotones(fichasSimpleBot,botonesSimple);
+            iniciarJuego();
+            guardarBotones();
+            setMetodosFichas();
+
             colocarFichas();
+
+        }
+
+        public void iniciarJuego()
+        {
+            juego.IniciaJuego();
+
+            fichasJugador1 = juego.GetJugadores()[2].fichasJugador;
+            fichasJugador2 = juego.GetJugadores()[1].fichasJugador;
+            fichasJugador3 = juego.GetJugadores()[0].fichasJugador;
+            string p = "";
+        }
+
+        public void setMetodosFichas()
+        {
+            foreach (Button boton in botonesHumano)
+            {
+                boton.Click += new EventHandler(setFicha);
+            }
+        }
+
+        public void setFicha(object sender, EventArgs e)
+        {
+            if(fichaTocada != null) { fichaTocada.BackColor = Color.White; }
+            Button boton = sender as Button;
+            this.color = filtrarColor(boton.ForeColor);
+            this.forma = boton.Text;
+            boton.BackColor = Color.LightBlue;
+            fichaTocada = boton;
+            string p = "";
         }
 
         public void colocarFichas()
         {
-            List<Controllers.Ficha> bolsaTotal = Controllers.BolsaFicha.GetBolsaFichas();
-            Controllers.Jugador jugador1 = new Controllers.Jugador();
-            jugador1.setFichasJugador(bolsaTotal);
-            List<Controllers.Ficha> fichasJugador1 = jugador1.fichasJugador;
+            colocarFichasBrilliant();
+            colocarFichasHumano();
+            colocarFichasSimple();
+        }
 
-            Controllers.Jugador jugador2 = new Controllers.Jugador();
-            jugador2.setFichasJugador(bolsaTotal);
-            List<Controllers.Ficha> fichasJugador2 = jugador2.fichasJugador;
-
-
-            Controllers.Jugador jugador3 = new Controllers.Jugador();
-            jugador3.setFichasJugador(bolsaTotal);
-            List<Controllers.Ficha> fichasJugador3 = jugador3.fichasJugador;
-
+        public void colocarFichasBrilliant()
+        {
             int i = 0;
-            foreach (Controllers.Ficha ficha in fichasJugador1 ) {
-                botononesBrilliant[i].Text = ficha.forma;
-                botononesBrilliant[i].ForeColor = ficha.color;
+            foreach (Controllers.Ficha ficha in fichasJugador1)
+            {
+                botonesBrilliant[i].Text = ficha.forma;
+                switch (ficha.color)
+                {
+                    case "Red":
+                        botonesBrilliant[i].ForeColor = Color.Red;
+                        break;
+                    case "Yellow":
+                        botonesBrilliant[i].ForeColor = Color.Yellow;
+                        break;
+                    case "Green":
+                        botonesBrilliant[i].ForeColor = Color.Green;
+                        break;
+                    case "Cyan":
+                        botonesBrilliant[i].ForeColor = Color.Cyan;
+                        break;
+                    case "Magenta":
+                        botonesBrilliant[i].ForeColor = Color.Magenta;
+                        break;
+                    case "Blue":
+                        botonesBrilliant[i].ForeColor = Color.Blue;
+                        break;
+
+                }
 
                 i++;
 
             }
-            i = 0;
+        }
+
+        public void colocarFichasSimple()
+        {
+            
+            
+            int i = 0;
             foreach (Controllers.Ficha ficha in fichasJugador2)
             {
                 botonesSimple[i].Text = ficha.forma;
-                botonesSimple[i].ForeColor = ficha.color;
+                switch (ficha.color)
+                {
+                    case "Red":
+                        botonesSimple[i].ForeColor = Color.Red;
+                        break;
+                    case "Yellow":
+                        botonesSimple[i].ForeColor = Color.Yellow;
+
+                        break;
+                    case "Green":
+                        botonesSimple[i].ForeColor = Color.Green;
+                        break;
+                    case "Cyan":
+                        botonesSimple[i].ForeColor = Color.Cyan;
+                        break;
+                    case "Magenta":
+                        botonesSimple[i].ForeColor = Color.Magenta;
+                        break;
+                    case "Blue":
+                        botonesSimple[i].ForeColor = Color.Blue;
+                        break;
+
+                }
                 i++;
 
             }
-            i = 0;
+            
+        }
+
+        public void colocarFichasHumano()
+        {
+            int i = 0;
             foreach (Controllers.Ficha ficha in fichasJugador3)
             {
                 botonesHumano[i].Text = ficha.forma;
-                botonesHumano[i].ForeColor = ficha.color;
+                switch (ficha.color)
+                {
+                    case "Red":
+                        botonesHumano[i].ForeColor = Color.Red;
+                        break;
+                    case "Yellow":
+                        botonesHumano[i].ForeColor = Color.Yellow;
+                        break;
+                    case "Green":
+                        botonesHumano[i].ForeColor = Color.Green;
+                        break;
+                    case "Cyan":
+                        botonesHumano[i].ForeColor = Color.Cyan;
+                        break;
+                    case "Magenta":
+                        botonesHumano[i].ForeColor = Color.Magenta;
+                        break;
+                    case "Blue":
+                        botonesHumano[i].ForeColor = Color.Blue;
+                        break;
+
+                }
                 i++;
             }
-            
-            
-
-            string p = "ttt";
-
         }
 
-        public void guardarBotones(TableLayoutPanel fichas, List<Button> lista)
+
+        public void actualizarFichasHumano() 
+        {
+            Controllers.Ficha ficha = new Controllers.Ficha();
+            ficha.color = color;
+            ficha.forma = forma;
+            juego.ColocaFicha(ficha, x,y);
+        
+            fichasJugador3 = juego.GetJugadores()[0].fichasJugador;
+            colocarFichasHumano();
+            string p = "";
+        }
+
+        public void guardarBotones()
+        {
+
+            botonesHumano = guardarBotonesAux(fichasHuman, botonesHumano);
+            botonesBrilliant = guardarBotonesAux(fichasBrillianBot, botonesBrilliant);
+            botonesSimple = guardarBotonesAux(fichasSimpleBot, botonesSimple);
+        }
+
+        public List<Button> guardarBotonesAux(TableLayoutPanel fichas, List<Button> lista)
         {
             int i = 0; int j = 0;
             for (i = 0; i <= fichas.ColumnCount; i++)
@@ -87,6 +218,7 @@ namespace Qwirkle_DD
                     }
                 }
             }
+            return lista;
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
@@ -105,10 +237,11 @@ namespace Qwirkle_DD
                     Control c = tableLayoutPanel1.GetControlFromPosition(i, j);     
                     if (c != null)
                     {
-                        c.Click += new EventHandler(button900_Click);
+                        c.Click += new EventHandler(buttonTablero_click);
                     }
                 }
             }
+
         }
 
         private void Prueba_Click(object sender, EventArgs e)
@@ -165,16 +298,67 @@ namespace Qwirkle_DD
         }
 
 
-        private void button900_Click(object sender, EventArgs e)
+        public string filtrarColor(Color color)
         {
-            Button button = sender as Button;
-            var row = tableLayoutPanel1.GetPositionFromControl(button);
-            // aqui se escribe en el boton que se presione
-            //button.Text = row.ToString();
-            //label1.Text = row.ToString();
-            //Controllers.BolsaFicha fichas = new Controllers.BolsaFicha();
+            if (color.Equals(Color.Red)) { return "Red"; }
+            if (color.Equals(Color.Green)) { return "Green"; }
+            if (color.Equals(Color.Cyan)) { return "Cyan"; }
+            if (color.Equals(Color.Blue)) { return "Blue"; }
+            if (color.Equals(Color.Magenta)) { return "Magenta"; }
+            return "Yellow";
+        }
 
-            //List<Controllers.Ficha> bolsaTotal = fichas.GetBolsaFichas
+        public Color filtrarColorAux(string color) {
+            Color colorRes;
+            switch (color)
+            {
+                case "Red":
+                    colorRes =  Color.Red;
+                    break;
+                case "Yellow":
+                   colorRes =  Color.Yellow;
+                    break;
+                case "Green":
+                    colorRes =  Color.Green;
+                    break;
+                case "Cyan":
+                 colorRes =  Color.Cyan;
+                    break;
+                case "Magenta":
+                    colorRes = Color.Magenta;
+                    break;
+                default:
+                    colorRes = Color.Blue;
+                    break;
+            }
+
+            return colorRes;
+        }
+
+        private void buttonTablero_click(object sender, EventArgs e)
+        {
+            if (ultimaFicha != null)
+            {
+                ultimaFicha.BackColor = Color.White;
+            }
+            Button button = sender as Button;
+            var row = tableLayoutPanel1.GetPositionFromControl(button); // posicion
+            x = row.Row;
+            y = row.Column;
+            //button.Text = row.ToString();
+            fichaTocada.BackColor = Color.White;
+            button.Text = forma;
+            button.ForeColor = filtrarColorAux(color);
+            button.BackColor = Color.LightGreen;
+            button.TextAlign = ContentAlignment.MiddleCenter;
+            button.Font= new Font(button.Font.FontFamily, 30);
+            ultimaFicha = button;
+
+            //forma = "";
+
+            colocadasHumano.Add(button);
+            actualizarFichasHumano();
+
         }
     }
 }

@@ -16,9 +16,9 @@ namespace Qwirkle_DD
         static void Main()
         {
 
-
-            Controllers.Juego juego = new Controllers.Juego();
-            juego.IniciaJuego();
+        
+            //Controllers.Juego juego = new Controllers.Juego();
+            //juego.IniciaJuego();
 
             //Controllers.BolsaFicha fichas = new Controllers.BolsaFicha();
             //List<Controllers.Ficha> bolsaTotal = fichas.GetBolsaFichas();
