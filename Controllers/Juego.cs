@@ -49,7 +49,6 @@ namespace Qwirkle_DD.Controllers
 
         public void ColocaFicha(Ficha ficha, int X, int Y)
         {
-       
             string jsonString = JsonConvert.SerializeObject(ficha);
             tablero.Rows[X][Y] = jsonString;
             for (int i = 0; i < jugadores[0].fichasJugador.Count(); i++)
@@ -83,14 +82,24 @@ namespace Qwirkle_DD.Controllers
             return juegosValidos;
         }
 
-        public bool ValidacionJuegoTurno_Aux(Ficha ficha, int x, int y)
+        public bool ValidacionJuegoTurno_Aux(Ficha ficha,int x, int y)
         {
             List<string> fichasAdyacentes = new List<string>();
-            if (y - 1 >= 0)
-            {
+            if (y - 1 >= 0) {
                 fichasAdyacentes.Add(tablero.Rows[y - 1][x].ToString());
-            }
+                    }
+        //    if (y + 1 < tablero.Rows.Count)
+        //    {
+        //        adjacent_checks.append((self._board[y + 1][x] is None))
+        //            }
+        //    if x - 1 >= 0:
+        //    adjacent_checks.append((self._board[y][x - 1] is None))
+        //if x + 1 < len(self._board[y]):
+        //    adjacent_checks.append((self._board[y][x + 1] is None))
 
+        //if all(adjacent_checks){
+        //        return False
+        //            }
 
 
 
