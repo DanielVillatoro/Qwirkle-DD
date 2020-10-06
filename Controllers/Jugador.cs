@@ -9,6 +9,7 @@ namespace Qwirkle_DD.Controllers
     public class Jugador
     {
         public double puntaje { get; set; }
+        public double puntosUltimaJugada { get; set; }
         public string nombre { get; set; }
         public List<Controllers.Ficha> fichasJugador { get; set; }
         public void setFichasJugador(List<Controllers.Ficha> bolsaTotal)

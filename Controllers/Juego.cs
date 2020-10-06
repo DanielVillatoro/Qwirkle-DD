@@ -14,6 +14,7 @@ namespace Qwirkle_DD.Controllers
         List<Controllers.Jugador> jugadores = new List<Controllers.Jugador>();
         List<Controllers.Ficha> bolsaTotalFichas = Controllers.BolsaFicha.GetBolsaFichas();
         DataTable tablero = Controllers.Tablero.GetTablero();
+        Controllers.Jugador jugadorActual = null;
 
         public void IniciaJuego()
         {
@@ -24,27 +25,29 @@ namespace Qwirkle_DD.Controllers
 
             Controllers.Jugador jugador2 = new Controllers.Jugador();
             jugador2.setFichasJugador(GetBolsaTotalFichas());
-            jugador2.nombre = "Bot1";
+            jugador2.nombre = "Brilliant Bot";
             List<Controllers.Ficha> fichasJugador2 = jugador2.fichasJugador;
 
             Controllers.Jugador jugador3 = new Controllers.Jugador();
             jugador3.setFichasJugador(GetBolsaTotalFichas());
-            jugador3.nombre = "Bot2";
+            jugador3.nombre = "Simple Bot";
             List<Controllers.Ficha> fichasJugador3 = jugador3.fichasJugador;
             jugadores.Add(jugador1);
             jugadores.Add(jugador2);
             jugadores.Add(jugador3);
-            int turno = 0;
-            //ColocaFicha(jugador1.fichasJugador[1], 0, 0);
-            //while (true){
-            //    if (turno == 3){turno = 0;}
-            //    jugadores[turno].setFichasJugador(GetBolsaTotalFichas());
-            //    if (jugadores[turno].fichasJugador.Count() == 0){ break; }
-            //    turno++;
-            //    string stop1 = "";
-            //}
-            //GANADOR
-            string stop = "";
+            jugador1.puntaje = 0;
+            jugador1.puntosUltimaJugada = 0;
+            jugador2.puntaje = 0;
+            jugador2.puntosUltimaJugada = 0;
+            jugador3.puntaje = 0;
+            jugador3.puntosUltimaJugada = 0;
+            jugadorActual = jugador1;
+        }
+
+
+        public void  cambiarTurno(int pos)
+        {
+            jugadorActual = jugadores[pos];
         }
 
         public void ColocaFicha(Ficha ficha, int X, int Y)
@@ -105,6 +108,11 @@ namespace Qwirkle_DD.Controllers
 
 
             return true;
+        }
+
+        public Jugador GetJugador()
+        {
+            return jugadorActual;
         }
 
         public DataTable GetTablero()

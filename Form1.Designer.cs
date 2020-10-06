@@ -33,6 +33,39 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.puntosH = new System.Windows.Forms.Label();
+            this.fichasHuman = new System.Windows.Forms.TableLayoutPanel();
+            this.fichaH3 = new System.Windows.Forms.Button();
+            this.fichaH4 = new System.Windows.Forms.Button();
+            this.fichaH5 = new System.Windows.Forms.Button();
+            this.fichaH0 = new System.Windows.Forms.Button();
+            this.fichaH1 = new System.Windows.Forms.Button();
+            this.fichaH2 = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.puntosSB = new System.Windows.Forms.Label();
+            this.fichasSimpleBot = new System.Windows.Forms.TableLayoutPanel();
+            this.fichaS3 = new System.Windows.Forms.Button();
+            this.fichaS4 = new System.Windows.Forms.Button();
+            this.fichaS5 = new System.Windows.Forms.Button();
+            this.fichaS0 = new System.Windows.Forms.Button();
+            this.fichaS1 = new System.Windows.Forms.Button();
+            this.fichaF2 = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.puntosBB = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.fichasBrillianBot = new System.Windows.Forms.TableLayoutPanel();
+            this.fichab3 = new System.Windows.Forms.Button();
+            this.fichaB4 = new System.Windows.Forms.Button();
+            this.fichaB5 = new System.Windows.Forms.Button();
+            this.fichaB0 = new System.Windows.Forms.Button();
+            this.fichaB1 = new System.Windows.Forms.Button();
+            this.fichaB2 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.button900 = new System.Windows.Forms.Button();
             this.button899 = new System.Windows.Forms.Button();
@@ -934,51 +967,27 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.fichasBrillianBot = new System.Windows.Forms.TableLayoutPanel();
-            this.fichaB2 = new System.Windows.Forms.Button();
-            this.fichaB1 = new System.Windows.Forms.Button();
-            this.fichaB0 = new System.Windows.Forms.Button();
-            this.fichaB5 = new System.Windows.Forms.Button();
-            this.fichaB4 = new System.Windows.Forms.Button();
-            this.fichab3 = new System.Windows.Forms.Button();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.fichasSimpleBot = new System.Windows.Forms.TableLayoutPanel();
-            this.fichaS3 = new System.Windows.Forms.Button();
-            this.fichaS4 = new System.Windows.Forms.Button();
-            this.fichaS5 = new System.Windows.Forms.Button();
-            this.fichaS0 = new System.Windows.Forms.Button();
-            this.fichaS1 = new System.Windows.Forms.Button();
-            this.fichaF2 = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.fichasHuman = new System.Windows.Forms.TableLayoutPanel();
-            this.fichaH3 = new System.Windows.Forms.Button();
-            this.fichaH4 = new System.Windows.Forms.Button();
-            this.fichaH5 = new System.Windows.Forms.Button();
-            this.fichaH0 = new System.Windows.Forms.Button();
-            this.fichaH1 = new System.Windows.Forms.Button();
-            this.fichaH2 = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
             this.helpProvider1 = new System.Windows.Forms.HelpProvider();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.jugar = new System.Windows.Forms.Button();
+            this.label13 = new System.Windows.Forms.Label();
+            this.labelJugadorActual = new System.Windows.Forms.Label();
+            this.ultimaBB = new System.Windows.Forms.Label();
+            this.ultimaHP = new System.Windows.Forms.Label();
+            this.ultimaSB = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
-            this.panel3.SuspendLayout();
-            this.fichasBrillianBot.SuspendLayout();
-            this.panel4.SuspendLayout();
-            this.fichasSimpleBot.SuspendLayout();
             this.panel5.SuspendLayout();
             this.fichasHuman.SuspendLayout();
+            this.panel4.SuspendLayout();
+            this.fichasSimpleBot.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.fichasBrillianBot.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -1012,6 +1021,9 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.labelJugadorActual);
+            this.panel2.Controls.Add(this.label13);
+            this.panel2.Controls.Add(this.jugar);
             this.panel2.Controls.Add(this.panel5);
             this.panel2.Controls.Add(this.panel4);
             this.panel2.Controls.Add(this.panel3);
@@ -1021,6 +1033,385 @@
             this.panel2.Size = new System.Drawing.Size(1950, 1080);
             this.panel2.TabIndex = 4;
             this.panel2.Visible = false;
+            // 
+            // panel5
+            // 
+            this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel5.Controls.Add(this.ultimaHP);
+            this.panel5.Controls.Add(this.label12);
+            this.panel5.Controls.Add(this.puntosH);
+            this.panel5.Controls.Add(this.fichasHuman);
+            this.panel5.Controls.Add(this.label9);
+            this.panel5.Controls.Add(this.label3);
+            this.panel5.Location = new System.Drawing.Point(40, 565);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(690, 259);
+            this.panel5.TabIndex = 3;
+            this.panel5.Paint += new System.Windows.Forms.PaintEventHandler(this.panel5_Paint);
+            // 
+            // puntosH
+            // 
+            this.puntosH.AutoSize = true;
+            this.puntosH.Font = new System.Drawing.Font("The Bold Font", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.puntosH.Location = new System.Drawing.Point(187, 91);
+            this.puntosH.Name = "puntosH";
+            this.puntosH.Size = new System.Drawing.Size(0, 25);
+            this.puntosH.TabIndex = 7;
+            // 
+            // fichasHuman
+            // 
+            this.fichasHuman.ColumnCount = 6;
+            this.fichasHuman.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.fichasHuman.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.fichasHuman.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.fichasHuman.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.fichasHuman.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.fichasHuman.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.fichasHuman.Controls.Add(this.fichaH3, 0, 0);
+            this.fichasHuman.Controls.Add(this.fichaH4, 0, 0);
+            this.fichasHuman.Controls.Add(this.fichaH5, 0, 0);
+            this.fichasHuman.Controls.Add(this.fichaH0, 0, 0);
+            this.fichasHuman.Controls.Add(this.fichaH1, 0, 0);
+            this.fichasHuman.Controls.Add(this.fichaH2, 0, 0);
+            this.fichasHuman.Location = new System.Drawing.Point(96, 155);
+            this.fichasHuman.Name = "fichasHuman";
+            this.fichasHuman.RowCount = 1;
+            this.fichasHuman.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.fichasHuman.Size = new System.Drawing.Size(500, 87);
+            this.fichasHuman.TabIndex = 1;
+            // 
+            // fichaH3
+            // 
+            this.fichaH3.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.fichaH3.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fichaH3.Location = new System.Drawing.Point(252, 3);
+            this.fichaH3.Name = "fichaH3";
+            this.fichaH3.Size = new System.Drawing.Size(77, 81);
+            this.fichaH3.TabIndex = 6;
+            this.fichaH3.UseVisualStyleBackColor = false;
+            // 
+            // fichaH4
+            // 
+            this.fichaH4.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.fichaH4.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fichaH4.Location = new System.Drawing.Point(335, 3);
+            this.fichaH4.Name = "fichaH4";
+            this.fichaH4.Size = new System.Drawing.Size(77, 81);
+            this.fichaH4.TabIndex = 5;
+            this.fichaH4.UseVisualStyleBackColor = false;
+            // 
+            // fichaH5
+            // 
+            this.fichaH5.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.fichaH5.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fichaH5.Location = new System.Drawing.Point(418, 3);
+            this.fichaH5.Name = "fichaH5";
+            this.fichaH5.Size = new System.Drawing.Size(77, 81);
+            this.fichaH5.TabIndex = 4;
+            this.fichaH5.UseVisualStyleBackColor = false;
+            // 
+            // fichaH0
+            // 
+            this.fichaH0.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.fichaH0.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fichaH0.Location = new System.Drawing.Point(3, 3);
+            this.fichaH0.Name = "fichaH0";
+            this.fichaH0.Size = new System.Drawing.Size(77, 81);
+            this.fichaH0.TabIndex = 3;
+            this.fichaH0.UseVisualStyleBackColor = false;
+            // 
+            // fichaH1
+            // 
+            this.fichaH1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.fichaH1.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fichaH1.Location = new System.Drawing.Point(86, 3);
+            this.fichaH1.Name = "fichaH1";
+            this.fichaH1.Size = new System.Drawing.Size(77, 81);
+            this.fichaH1.TabIndex = 2;
+            this.fichaH1.UseVisualStyleBackColor = false;
+            // 
+            // fichaH2
+            // 
+            this.fichaH2.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.fichaH2.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fichaH2.Location = new System.Drawing.Point(169, 3);
+            this.fichaH2.Name = "fichaH2";
+            this.fichaH2.Size = new System.Drawing.Size(77, 81);
+            this.fichaH2.TabIndex = 1;
+            this.fichaH2.UseVisualStyleBackColor = false;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("The Bold Font", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(91, 91);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(90, 25);
+            this.label9.TabIndex = 6;
+            this.label9.Text = "Puntos:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("The Bold Font", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(179, 27);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(290, 47);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Human Player";
+            // 
+            // panel4
+            // 
+            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel4.Controls.Add(this.ultimaSB);
+            this.panel4.Controls.Add(this.label11);
+            this.panel4.Controls.Add(this.puntosSB);
+            this.panel4.Controls.Add(this.fichasSimpleBot);
+            this.panel4.Controls.Add(this.label7);
+            this.panel4.Controls.Add(this.label2);
+            this.panel4.Location = new System.Drawing.Point(40, 303);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(690, 245);
+            this.panel4.TabIndex = 2;
+            // 
+            // puntosSB
+            // 
+            this.puntosSB.AutoSize = true;
+            this.puntosSB.Font = new System.Drawing.Font("The Bold Font", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.puntosSB.Location = new System.Drawing.Point(187, 75);
+            this.puntosSB.Name = "puntosSB";
+            this.puntosSB.Size = new System.Drawing.Size(0, 25);
+            this.puntosSB.TabIndex = 5;
+            // 
+            // fichasSimpleBot
+            // 
+            this.fichasSimpleBot.ColumnCount = 6;
+            this.fichasSimpleBot.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.fichasSimpleBot.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.fichasSimpleBot.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.fichasSimpleBot.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.fichasSimpleBot.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.fichasSimpleBot.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.fichasSimpleBot.Controls.Add(this.fichaS3, 0, 0);
+            this.fichasSimpleBot.Controls.Add(this.fichaS4, 0, 0);
+            this.fichasSimpleBot.Controls.Add(this.fichaS5, 0, 0);
+            this.fichasSimpleBot.Controls.Add(this.fichaS0, 0, 0);
+            this.fichasSimpleBot.Controls.Add(this.fichaS1, 0, 0);
+            this.fichasSimpleBot.Controls.Add(this.fichaF2, 0, 0);
+            this.fichasSimpleBot.Location = new System.Drawing.Point(93, 142);
+            this.fichasSimpleBot.Name = "fichasSimpleBot";
+            this.fichasSimpleBot.RowCount = 1;
+            this.fichasSimpleBot.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.fichasSimpleBot.Size = new System.Drawing.Size(500, 87);
+            this.fichasSimpleBot.TabIndex = 1;
+            // 
+            // fichaS3
+            // 
+            this.fichaS3.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.fichaS3.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fichaS3.Location = new System.Drawing.Point(252, 3);
+            this.fichaS3.Name = "fichaS3";
+            this.fichaS3.Size = new System.Drawing.Size(77, 81);
+            this.fichaS3.TabIndex = 6;
+            this.fichaS3.UseVisualStyleBackColor = false;
+            // 
+            // fichaS4
+            // 
+            this.fichaS4.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.fichaS4.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fichaS4.Location = new System.Drawing.Point(335, 3);
+            this.fichaS4.Name = "fichaS4";
+            this.fichaS4.Size = new System.Drawing.Size(77, 81);
+            this.fichaS4.TabIndex = 5;
+            this.fichaS4.UseVisualStyleBackColor = false;
+            // 
+            // fichaS5
+            // 
+            this.fichaS5.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.fichaS5.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fichaS5.Location = new System.Drawing.Point(418, 3);
+            this.fichaS5.Name = "fichaS5";
+            this.fichaS5.Size = new System.Drawing.Size(77, 81);
+            this.fichaS5.TabIndex = 4;
+            this.fichaS5.UseVisualStyleBackColor = false;
+            // 
+            // fichaS0
+            // 
+            this.fichaS0.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.fichaS0.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fichaS0.Location = new System.Drawing.Point(3, 3);
+            this.fichaS0.Name = "fichaS0";
+            this.fichaS0.Size = new System.Drawing.Size(77, 81);
+            this.fichaS0.TabIndex = 3;
+            this.fichaS0.UseVisualStyleBackColor = false;
+            // 
+            // fichaS1
+            // 
+            this.fichaS1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.fichaS1.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fichaS1.Location = new System.Drawing.Point(86, 3);
+            this.fichaS1.Name = "fichaS1";
+            this.fichaS1.Size = new System.Drawing.Size(77, 81);
+            this.fichaS1.TabIndex = 2;
+            this.fichaS1.UseVisualStyleBackColor = false;
+            // 
+            // fichaF2
+            // 
+            this.fichaF2.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.fichaF2.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fichaF2.Location = new System.Drawing.Point(169, 3);
+            this.fichaF2.Name = "fichaF2";
+            this.fichaF2.Size = new System.Drawing.Size(77, 81);
+            this.fichaF2.TabIndex = 1;
+            this.fichaF2.UseVisualStyleBackColor = false;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("The Bold Font", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(91, 75);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(90, 25);
+            this.label7.TabIndex = 4;
+            this.label7.Text = "Puntos:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("The Bold Font", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(226, 23);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(216, 47);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Simple Bot";
+            // 
+            // panel3
+            // 
+            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel3.Controls.Add(this.ultimaBB);
+            this.panel3.Controls.Add(this.label10);
+            this.panel3.Controls.Add(this.puntosBB);
+            this.panel3.Controls.Add(this.label4);
+            this.panel3.Controls.Add(this.fichasBrillianBot);
+            this.panel3.Controls.Add(this.label1);
+            this.panel3.Location = new System.Drawing.Point(40, 28);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(690, 255);
+            this.panel3.TabIndex = 1;
+            // 
+            // puntosBB
+            // 
+            this.puntosBB.AutoSize = true;
+            this.puntosBB.Font = new System.Drawing.Font("The Bold Font", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.puntosBB.Location = new System.Drawing.Point(184, 70);
+            this.puntosBB.Name = "puntosBB";
+            this.puntosBB.Size = new System.Drawing.Size(0, 25);
+            this.puntosBB.TabIndex = 3;
+            this.puntosBB.Click += new System.EventHandler(this.puntosBB_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("The Bold Font", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(88, 70);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(90, 25);
+            this.label4.TabIndex = 2;
+            this.label4.Text = "Puntos:";
+            // 
+            // fichasBrillianBot
+            // 
+            this.fichasBrillianBot.ColumnCount = 6;
+            this.fichasBrillianBot.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.fichasBrillianBot.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.fichasBrillianBot.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.fichasBrillianBot.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.fichasBrillianBot.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.fichasBrillianBot.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.fichasBrillianBot.Controls.Add(this.fichab3, 0, 0);
+            this.fichasBrillianBot.Controls.Add(this.fichaB4, 0, 0);
+            this.fichasBrillianBot.Controls.Add(this.fichaB5, 0, 0);
+            this.fichasBrillianBot.Controls.Add(this.fichaB0, 0, 0);
+            this.fichasBrillianBot.Controls.Add(this.fichaB1, 0, 0);
+            this.fichasBrillianBot.Controls.Add(this.fichaB2, 0, 0);
+            this.fichasBrillianBot.Location = new System.Drawing.Point(93, 152);
+            this.fichasBrillianBot.Name = "fichasBrillianBot";
+            this.fichasBrillianBot.RowCount = 1;
+            this.fichasBrillianBot.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.fichasBrillianBot.Size = new System.Drawing.Size(500, 87);
+            this.fichasBrillianBot.TabIndex = 1;
+            this.fichasBrillianBot.Paint += new System.Windows.Forms.PaintEventHandler(this.fichasBrillianBot_Paint);
+            // 
+            // fichab3
+            // 
+            this.fichab3.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.fichab3.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fichab3.Location = new System.Drawing.Point(252, 3);
+            this.fichab3.Name = "fichab3";
+            this.fichab3.Size = new System.Drawing.Size(77, 81);
+            this.fichab3.TabIndex = 6;
+            this.fichab3.UseVisualStyleBackColor = false;
+            // 
+            // fichaB4
+            // 
+            this.fichaB4.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.fichaB4.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fichaB4.Location = new System.Drawing.Point(335, 3);
+            this.fichaB4.Name = "fichaB4";
+            this.fichaB4.Size = new System.Drawing.Size(77, 81);
+            this.fichaB4.TabIndex = 5;
+            this.fichaB4.UseVisualStyleBackColor = false;
+            // 
+            // fichaB5
+            // 
+            this.fichaB5.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.fichaB5.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fichaB5.Location = new System.Drawing.Point(418, 3);
+            this.fichaB5.Name = "fichaB5";
+            this.fichaB5.Size = new System.Drawing.Size(77, 81);
+            this.fichaB5.TabIndex = 4;
+            this.fichaB5.UseVisualStyleBackColor = false;
+            // 
+            // fichaB0
+            // 
+            this.fichaB0.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.fichaB0.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fichaB0.ForeColor = System.Drawing.Color.Transparent;
+            this.fichaB0.Location = new System.Drawing.Point(3, 3);
+            this.fichaB0.Name = "fichaB0";
+            this.fichaB0.Size = new System.Drawing.Size(77, 81);
+            this.fichaB0.TabIndex = 3;
+            this.fichaB0.UseVisualStyleBackColor = false;
+            // 
+            // fichaB1
+            // 
+            this.fichaB1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.fichaB1.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fichaB1.Location = new System.Drawing.Point(86, 3);
+            this.fichaB1.Name = "fichaB1";
+            this.fichaB1.Size = new System.Drawing.Size(77, 81);
+            this.fichaB1.TabIndex = 2;
+            this.fichaB1.UseVisualStyleBackColor = false;
+            // 
+            // fichaB2
+            // 
+            this.fichaB2.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.fichaB2.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fichaB2.Location = new System.Drawing.Point(169, 3);
+            this.fichaB2.Name = "fichaB2";
+            this.fichaB2.Size = new System.Drawing.Size(77, 81);
+            this.fichaB2.TabIndex = 1;
+            this.fichaB2.UseVisualStyleBackColor = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("The Bold Font", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(199, 17);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(267, 47);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Brilliant Bot";
             // 
             // tableLayoutPanel1
             // 
@@ -10096,378 +10487,99 @@
             this.button1.TabIndex = 0;
             this.button1.UseVisualStyleBackColor = false;
             // 
-            // panel3
-            // 
-            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel3.Controls.Add(this.label5);
-            this.panel3.Controls.Add(this.label4);
-            this.panel3.Controls.Add(this.fichasBrillianBot);
-            this.panel3.Controls.Add(this.label1);
-            this.panel3.Location = new System.Drawing.Point(40, 28);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(690, 288);
-            this.panel3.TabIndex = 1;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("The Bold Font", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(199, 17);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(262, 46);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Brilliant Bot";
-            // 
-            // fichasBrillianBot
-            // 
-            this.fichasBrillianBot.ColumnCount = 6;
-            this.fichasBrillianBot.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.fichasBrillianBot.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.fichasBrillianBot.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.fichasBrillianBot.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.fichasBrillianBot.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.fichasBrillianBot.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.fichasBrillianBot.Controls.Add(this.fichab3, 0, 0);
-            this.fichasBrillianBot.Controls.Add(this.fichaB4, 0, 0);
-            this.fichasBrillianBot.Controls.Add(this.fichaB5, 0, 0);
-            this.fichasBrillianBot.Controls.Add(this.fichaB0, 0, 0);
-            this.fichasBrillianBot.Controls.Add(this.fichaB1, 0, 0);
-            this.fichasBrillianBot.Controls.Add(this.fichaB2, 0, 0);
-            this.fichasBrillianBot.Location = new System.Drawing.Point(93, 172);
-            this.fichasBrillianBot.Name = "fichasBrillianBot";
-            this.fichasBrillianBot.RowCount = 1;
-            this.fichasBrillianBot.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.fichasBrillianBot.Size = new System.Drawing.Size(500, 87);
-            this.fichasBrillianBot.TabIndex = 1;
-            // 
-            // fichaB2
-            // 
-            this.fichaB2.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.fichaB2.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fichaB2.Location = new System.Drawing.Point(169, 3);
-            this.fichaB2.Name = "fichaB2";
-            this.fichaB2.Size = new System.Drawing.Size(77, 81);
-            this.fichaB2.TabIndex = 1;
-            this.fichaB2.UseVisualStyleBackColor = false;
-            // 
-            // fichaB1
-            // 
-            this.fichaB1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.fichaB1.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fichaB1.Location = new System.Drawing.Point(86, 3);
-            this.fichaB1.Name = "fichaB1";
-            this.fichaB1.Size = new System.Drawing.Size(77, 81);
-            this.fichaB1.TabIndex = 2;
-            this.fichaB1.UseVisualStyleBackColor = false;
-            // 
-            // fichaB0
-            // 
-            this.fichaB0.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.fichaB0.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fichaB0.ForeColor = System.Drawing.Color.Transparent;
-            this.fichaB0.Location = new System.Drawing.Point(3, 3);
-            this.fichaB0.Name = "fichaB0";
-            this.fichaB0.Size = new System.Drawing.Size(77, 81);
-            this.fichaB0.TabIndex = 3;
-            this.fichaB0.UseVisualStyleBackColor = false;
-            // 
-            // fichaB5
-            // 
-            this.fichaB5.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.fichaB5.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fichaB5.Location = new System.Drawing.Point(418, 3);
-            this.fichaB5.Name = "fichaB5";
-            this.fichaB5.Size = new System.Drawing.Size(77, 81);
-            this.fichaB5.TabIndex = 4;
-            this.fichaB5.UseVisualStyleBackColor = false;
-            // 
-            // fichaB4
-            // 
-            this.fichaB4.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.fichaB4.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fichaB4.Location = new System.Drawing.Point(335, 3);
-            this.fichaB4.Name = "fichaB4";
-            this.fichaB4.Size = new System.Drawing.Size(77, 81);
-            this.fichaB4.TabIndex = 5;
-            this.fichaB4.UseVisualStyleBackColor = false;
-            // 
-            // fichab3
-            // 
-            this.fichab3.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.fichab3.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fichab3.Location = new System.Drawing.Point(252, 3);
-            this.fichab3.Name = "fichab3";
-            this.fichab3.Size = new System.Drawing.Size(77, 81);
-            this.fichab3.TabIndex = 6;
-            this.fichab3.UseVisualStyleBackColor = false;
-            // 
-            // panel4
-            // 
-            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel4.Controls.Add(this.label6);
-            this.panel4.Controls.Add(this.fichasSimpleBot);
-            this.panel4.Controls.Add(this.label7);
-            this.panel4.Controls.Add(this.label2);
-            this.panel4.Location = new System.Drawing.Point(40, 359);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(690, 288);
-            this.panel4.TabIndex = 2;
-            // 
-            // fichasSimpleBot
-            // 
-            this.fichasSimpleBot.ColumnCount = 6;
-            this.fichasSimpleBot.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.fichasSimpleBot.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.fichasSimpleBot.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.fichasSimpleBot.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.fichasSimpleBot.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.fichasSimpleBot.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.fichasSimpleBot.Controls.Add(this.fichaS3, 0, 0);
-            this.fichasSimpleBot.Controls.Add(this.fichaS4, 0, 0);
-            this.fichasSimpleBot.Controls.Add(this.fichaS5, 0, 0);
-            this.fichasSimpleBot.Controls.Add(this.fichaS0, 0, 0);
-            this.fichasSimpleBot.Controls.Add(this.fichaS1, 0, 0);
-            this.fichasSimpleBot.Controls.Add(this.fichaF2, 0, 0);
-            this.fichasSimpleBot.Location = new System.Drawing.Point(93, 172);
-            this.fichasSimpleBot.Name = "fichasSimpleBot";
-            this.fichasSimpleBot.RowCount = 1;
-            this.fichasSimpleBot.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.fichasSimpleBot.Size = new System.Drawing.Size(500, 87);
-            this.fichasSimpleBot.TabIndex = 1;
-            // 
-            // fichaS3
-            // 
-            this.fichaS3.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.fichaS3.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fichaS3.Location = new System.Drawing.Point(252, 3);
-            this.fichaS3.Name = "fichaS3";
-            this.fichaS3.Size = new System.Drawing.Size(77, 81);
-            this.fichaS3.TabIndex = 6;
-            this.fichaS3.UseVisualStyleBackColor = false;
-            // 
-            // fichaS4
-            // 
-            this.fichaS4.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.fichaS4.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fichaS4.Location = new System.Drawing.Point(335, 3);
-            this.fichaS4.Name = "fichaS4";
-            this.fichaS4.Size = new System.Drawing.Size(77, 81);
-            this.fichaS4.TabIndex = 5;
-            this.fichaS4.UseVisualStyleBackColor = false;
-            // 
-            // fichaS5
-            // 
-            this.fichaS5.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.fichaS5.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fichaS5.Location = new System.Drawing.Point(418, 3);
-            this.fichaS5.Name = "fichaS5";
-            this.fichaS5.Size = new System.Drawing.Size(77, 81);
-            this.fichaS5.TabIndex = 4;
-            this.fichaS5.UseVisualStyleBackColor = false;
-            // 
-            // fichaS0
-            // 
-            this.fichaS0.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.fichaS0.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fichaS0.Location = new System.Drawing.Point(3, 3);
-            this.fichaS0.Name = "fichaS0";
-            this.fichaS0.Size = new System.Drawing.Size(77, 81);
-            this.fichaS0.TabIndex = 3;
-            this.fichaS0.UseVisualStyleBackColor = false;
-            // 
-            // fichaS1
-            // 
-            this.fichaS1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.fichaS1.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fichaS1.Location = new System.Drawing.Point(86, 3);
-            this.fichaS1.Name = "fichaS1";
-            this.fichaS1.Size = new System.Drawing.Size(77, 81);
-            this.fichaS1.TabIndex = 2;
-            this.fichaS1.UseVisualStyleBackColor = false;
-            // 
-            // fichaF2
-            // 
-            this.fichaF2.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.fichaF2.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fichaF2.Location = new System.Drawing.Point(169, 3);
-            this.fichaF2.Name = "fichaF2";
-            this.fichaF2.Size = new System.Drawing.Size(77, 81);
-            this.fichaF2.TabIndex = 1;
-            this.fichaF2.UseVisualStyleBackColor = false;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("The Bold Font", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(226, 23);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(211, 46);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Simple Bot";
-            // 
-            // panel5
-            // 
-            this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel5.Controls.Add(this.label8);
-            this.panel5.Controls.Add(this.fichasHuman);
-            this.panel5.Controls.Add(this.label9);
-            this.panel5.Controls.Add(this.label3);
-            this.panel5.Location = new System.Drawing.Point(40, 685);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(690, 288);
-            this.panel5.TabIndex = 3;
-            // 
-            // fichasHuman
-            // 
-            this.fichasHuman.ColumnCount = 6;
-            this.fichasHuman.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.fichasHuman.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.fichasHuman.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.fichasHuman.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.fichasHuman.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.fichasHuman.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.fichasHuman.Controls.Add(this.fichaH3, 0, 0);
-            this.fichasHuman.Controls.Add(this.fichaH4, 0, 0);
-            this.fichasHuman.Controls.Add(this.fichaH5, 0, 0);
-            this.fichasHuman.Controls.Add(this.fichaH0, 0, 0);
-            this.fichasHuman.Controls.Add(this.fichaH1, 0, 0);
-            this.fichasHuman.Controls.Add(this.fichaH2, 0, 0);
-            this.fichasHuman.Location = new System.Drawing.Point(93, 172);
-            this.fichasHuman.Name = "fichasHuman";
-            this.fichasHuman.RowCount = 1;
-            this.fichasHuman.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.fichasHuman.Size = new System.Drawing.Size(500, 87);
-            this.fichasHuman.TabIndex = 1;
-            // 
-            // fichaH3
-            // 
-            this.fichaH3.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.fichaH3.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fichaH3.Location = new System.Drawing.Point(252, 3);
-            this.fichaH3.Name = "fichaH3";
-            this.fichaH3.Size = new System.Drawing.Size(77, 81);
-            this.fichaH3.TabIndex = 6;
-            this.fichaH3.UseVisualStyleBackColor = false;
-            // 
-            // fichaH4
-            // 
-            this.fichaH4.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.fichaH4.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fichaH4.Location = new System.Drawing.Point(335, 3);
-            this.fichaH4.Name = "fichaH4";
-            this.fichaH4.Size = new System.Drawing.Size(77, 81);
-            this.fichaH4.TabIndex = 5;
-            this.fichaH4.UseVisualStyleBackColor = false;
-            // 
-            // fichaH5
-            // 
-            this.fichaH5.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.fichaH5.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fichaH5.Location = new System.Drawing.Point(418, 3);
-            this.fichaH5.Name = "fichaH5";
-            this.fichaH5.Size = new System.Drawing.Size(77, 81);
-            this.fichaH5.TabIndex = 4;
-            this.fichaH5.UseVisualStyleBackColor = false;
-            // 
-            // fichaH0
-            // 
-            this.fichaH0.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.fichaH0.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fichaH0.Location = new System.Drawing.Point(3, 3);
-            this.fichaH0.Name = "fichaH0";
-            this.fichaH0.Size = new System.Drawing.Size(77, 81);
-            this.fichaH0.TabIndex = 3;
-            this.fichaH0.UseVisualStyleBackColor = false;
-            // 
-            // fichaH1
-            // 
-            this.fichaH1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.fichaH1.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fichaH1.Location = new System.Drawing.Point(86, 3);
-            this.fichaH1.Name = "fichaH1";
-            this.fichaH1.Size = new System.Drawing.Size(77, 81);
-            this.fichaH1.TabIndex = 2;
-            this.fichaH1.UseVisualStyleBackColor = false;
-            // 
-            // fichaH2
-            // 
-            this.fichaH2.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.fichaH2.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fichaH2.Location = new System.Drawing.Point(169, 3);
-            this.fichaH2.Name = "fichaH2";
-            this.fichaH2.Size = new System.Drawing.Size(77, 81);
-            this.fichaH2.TabIndex = 1;
-            this.fichaH2.UseVisualStyleBackColor = false;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("The Bold Font", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(179, 27);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(282, 46);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Human Player";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("The Bold Font", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(88, 70);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(90, 25);
-            this.label4.TabIndex = 2;
-            this.label4.Text = "Puntos:";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("The Bold Font", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(184, 70);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(23, 25);
-            this.label5.TabIndex = 3;
-            this.label5.Text = "7";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("The Bold Font", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(187, 75);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(23, 25);
-            this.label6.TabIndex = 5;
-            this.label6.Text = "7";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("The Bold Font", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(91, 75);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(90, 25);
-            this.label7.TabIndex = 4;
-            this.label7.Text = "Puntos:";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("The Bold Font", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(187, 91);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(23, 25);
-            this.label8.TabIndex = 7;
-            this.label8.Text = "7";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("The Bold Font", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(91, 91);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(90, 25);
-            this.label9.TabIndex = 6;
-            this.label9.Text = "Puntos:";
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("The Bold Font", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(88, 109);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(237, 25);
+            this.label10.TabIndex = 4;
+            this.label10.Text = "Puntos última jugada:";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("The Bold Font", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(91, 100);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(237, 25);
+            this.label11.TabIndex = 5;
+            this.label11.Text = "Puntos última jugada:";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("The Bold Font", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(91, 116);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(237, 25);
+            this.label12.TabIndex = 6;
+            this.label12.Text = "Puntos última jugada:";
+            // 
+            // jugar
+            // 
+            this.jugar.BackColor = System.Drawing.Color.White;
+            this.jugar.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.jugar.ForeColor = System.Drawing.Color.Green;
+            this.jugar.Location = new System.Drawing.Point(43, 947);
+            this.jugar.Name = "jugar";
+            this.jugar.Size = new System.Drawing.Size(231, 51);
+            this.jugar.TabIndex = 4;
+            this.jugar.Text = " Continuar ▶";
+            this.jugar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.jugar.UseVisualStyleBackColor = false;
+            this.jugar.Click += new System.EventHandler(this.jugar_Click);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("The Bold Font", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(34, 880);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(276, 34);
+            this.label13.TabIndex = 8;
+            this.label13.Text = "Turno del jugador:";
+            // 
+            // labelJugadorActual
+            // 
+            this.labelJugadorActual.AutoSize = true;
+            this.labelJugadorActual.Font = new System.Drawing.Font("The Bold Font", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelJugadorActual.Location = new System.Drawing.Point(334, 887);
+            this.labelJugadorActual.Name = "labelJugadorActual";
+            this.labelJugadorActual.Size = new System.Drawing.Size(0, 25);
+            this.labelJugadorActual.TabIndex = 8;
+            // 
+            // ultimaBB
+            // 
+            this.ultimaBB.AutoSize = true;
+            this.ultimaBB.Font = new System.Drawing.Font("The Bold Font", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ultimaBB.Location = new System.Drawing.Point(354, 109);
+            this.ultimaBB.Name = "ultimaBB";
+            this.ultimaBB.Size = new System.Drawing.Size(21, 25);
+            this.ultimaBB.TabIndex = 5;
+            this.ultimaBB.Text = "1";
+            // 
+            // ultimaHP
+            // 
+            this.ultimaHP.AutoSize = true;
+            this.ultimaHP.Font = new System.Drawing.Font("The Bold Font", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ultimaHP.Location = new System.Drawing.Point(354, 116);
+            this.ultimaHP.Name = "ultimaHP";
+            this.ultimaHP.Size = new System.Drawing.Size(21, 25);
+            this.ultimaHP.TabIndex = 6;
+            this.ultimaHP.Text = "1";
+            // 
+            // ultimaSB
+            // 
+            this.ultimaSB.AutoSize = true;
+            this.ultimaSB.Font = new System.Drawing.Font("The Bold Font", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ultimaSB.Location = new System.Drawing.Point(354, 100);
+            this.ultimaSB.Name = "ultimaSB";
+            this.ultimaSB.Size = new System.Drawing.Size(21, 25);
+            this.ultimaSB.TabIndex = 7;
+            this.ultimaSB.Text = "1";
+            this.ultimaSB.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // Qwirkle
             // 
@@ -10486,16 +10598,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
-            this.fichasBrillianBot.ResumeLayout(false);
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
-            this.fichasSimpleBot.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.fichasHuman.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
+            this.fichasSimpleBot.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            this.fichasBrillianBot.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -11433,13 +11546,22 @@
         private System.Windows.Forms.Button fichaS1;
         private System.Windows.Forms.Button fichaF2;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label puntosH;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label puntosSB;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label puntosBB;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.HelpProvider helpProvider1;
+        private System.Windows.Forms.Button jugar;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label labelJugadorActual;
+        private System.Windows.Forms.Label ultimaHP;
+        private System.Windows.Forms.Label ultimaSB;
+        private System.Windows.Forms.Label ultimaBB;
     }
 }
 
