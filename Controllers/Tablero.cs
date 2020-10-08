@@ -14,17 +14,22 @@ namespace Qwirkle_DD.Controllers
         public static DataTable GetTablero()
         {
             DataTable tablero = new DataTable();
+            DataRow row;
             for (int i = 1; i <= 30; i++)
             {
                 tablero.Columns.Add(i.ToString(), typeof(string));
-            }
-            DataRow row;
-            for (int j = 1; j <= 30; j++)
-            {
                 row = tablero.NewRow();
-                row[j.ToString()] = "0";
+                row[i.ToString()] = "0";
                 tablero.Rows.Add(row);
             }
+            for (int ii = 0; ii < 30; ii++)
+            {
+                for (int jj = 0; jj < 30; jj++)
+                {
+                    tablero.Rows[ii][jj] = "0";
+                }
+            }
+
 
             return tablero;
         }

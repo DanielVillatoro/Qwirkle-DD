@@ -346,7 +346,7 @@ namespace Qwirkle_DD
             x = row.Row;
             y = row.Column;
             //button.Text = row.ToString();
-            fichaTocada.BackColor = Color.White;
+            //fichaTocada.BackColor = Color.White;
             button.Text = forma;
             button.ForeColor = filtrarColorAux(color);
             button.BackColor = Color.LightGreen;
