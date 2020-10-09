@@ -15,6 +15,7 @@ namespace Qwirkle_DD.Controllers
         List<Controllers.Ficha> bolsaTotalFichas = new List<Controllers.Ficha>();
         DataTable tablero = Controllers.Tablero.GetTablero();
         List<Pos> _plays = new List<Pos>();
+        Controllers.Jugador jugadorActual = null;
 
         public void IniciaJuego()
         {
@@ -24,12 +25,14 @@ namespace Qwirkle_DD.Controllers
             jugador1.setFichasJugador(bolsaTotalFichas);
 
             Controllers.Jugador jugador2 = new Controllers.Jugador();
-            jugador2.setFichasJugador(bolsaTotalFichas);
-            jugador2.nombre = "Dummie";
+            jugador2.setFichasJugador(GetBolsaTotalFichas());
+            jugador2.nombre = "Brilliant Bot";
+            List<Controllers.Ficha> fichasJugador2 = jugador2.fichasJugador;
 
             Controllers.Jugador jugador3 = new Controllers.Jugador();
-            jugador3.setFichasJugador(bolsaTotalFichas);
-            jugador3.nombre = "Smart";
+            jugador3.setFichasJugador(GetBolsaTotalFichas());
+            jugador3.nombre = "Simple Bot";
+            List<Controllers.Ficha> fichasJugador3 = jugador3.fichasJugador;
             jugadores.Add(jugador1);
             jugadores.Add(jugador2);
 
@@ -67,6 +70,19 @@ namespace Qwirkle_DD.Controllers
 
             //GANADOR
             string stop = "";
+            jugador1.puntaje = 0;
+            jugador1.puntosUltimaJugada = 0;
+            jugador2.puntaje = 0;
+            jugador2.puntosUltimaJugada = 0;
+            jugador3.puntaje = 0;
+            jugador3.puntosUltimaJugada = 0;
+            jugadorActual = jugador1;
+        }
+
+
+        public void  cambiarTurno(int pos)
+        {
+            jugadorActual = jugadores[pos];
         }
 
         public void ColocaFicha(Ficha ficha, int X, int Y)
@@ -541,6 +557,12 @@ namespace Qwirkle_DD.Controllers
                 return true;
             }
             else { return false; }
+
+        }
+
+        public Jugador GetJugador()
+        {
+            return jugadorActual;
         }
 
         public DataTable GetTablero()

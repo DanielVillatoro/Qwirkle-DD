@@ -30,6 +30,8 @@ namespace Qwirkle_DD
         int y;
         Button fichaTocada;
 
+        int jugador = 0;
+
 
 
 
@@ -37,6 +39,7 @@ namespace Qwirkle_DD
         {
             InitializeComponent();
             iniciarJuego();
+            puntajes();
             guardarBotones();
             setMetodosFichas();
 
@@ -51,8 +54,44 @@ namespace Qwirkle_DD
             fichasJugador1 = juego.GetJugadores()[2].fichasJugador;
             fichasJugador2 = juego.GetJugadores()[1].fichasJugador;
             fichasJugador3 = juego.GetJugadores()[0].fichasJugador;
-            string p = "";
+
+            labelJugadorActual.Text = juego.GetJugador().nombre;
+
         }
+
+        public void puntajes()
+        {
+            puntajeSimple();
+            puntajeHumano();
+            puntajeBrilliant();
+        }
+
+        public void colocarFichasBots(int x, int y,Controllers.Ficha ficha)
+        {
+            Button boton = (Button)tableLayoutPanel1.GetControlFromPosition(x,y);
+            boton.Text = ficha.forma;
+           // boton.ForeColor = ficha.color; // filtrar color
+        }
+
+        public void puntajeHumano()
+        {
+            puntosH.Text = juego.GetJugadores()[0].puntaje.ToString();
+            ultimaHP.Text = juego.GetJugadores()[0].puntosUltimaJugada.ToString();
+
+        }
+
+        public void puntajeBrilliant()
+        {
+            puntosBB.Text = juego.GetJugadores()[2].puntaje.ToString();
+            ultimaBB.Text = juego.GetJugadores()[2].puntosUltimaJugada.ToString();
+        }
+        public void puntajeSimple()
+        {
+            puntosSB.Text = juego.GetJugadores()[1].puntaje.ToString();
+            ultimaSB.Text = juego.GetJugadores()[1].puntosUltimaJugada.ToString();
+        }
+
+
 
         public void setMetodosFichas()
         {
@@ -358,6 +397,33 @@ namespace Qwirkle_DD
 
             colocadasHumano.Add(button);
             actualizarFichasHumano();
+
+        }
+
+        private void fichasBrillianBot_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void jugar_Click(object sender, EventArgs e)
+        {
+            if(jugador == 2) { jugador = 0; juego.cambiarTurno(jugador);
+            }
+            else
+            {
+                jugador += 1;
+                juego.cambiarTurno(jugador);
+            }
+            labelJugadorActual.Text = juego.GetJugador().nombre;
+        }
+
+        private void puntosBB_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel5_Paint(object sender, PaintEventArgs e)
+        {
 
         }
     }
