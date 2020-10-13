@@ -8,6 +8,8 @@ namespace Qwirkle_DD.Controllers
 {
     public class Jugador
     {
+        //internal object fichasjugador;
+
         public double puntaje { get; set; }
         public double puntosUltimaJugada { get; set; }
         public string nombre { get; set; }

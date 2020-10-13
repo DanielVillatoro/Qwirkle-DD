@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -55,7 +56,8 @@ namespace Qwirkle_DD
             fichasJugador2 = juego.GetJugadores()[1].fichasJugador;
             fichasJugador3 = juego.GetJugadores()[0].fichasJugador;
 
-            labelJugadorActual.Text = juego.GetJugador().nombre;
+            labelJugadorActual.Text = juego.GetJugadores()[0].nombre;
+            //labelJugadorActual.Text = juego.GetJugador().nombre;
 
         }
 
@@ -66,11 +68,46 @@ namespace Qwirkle_DD
             puntajeBrilliant();
         }
 
-        public void colocarFichasBots(int x, int y,Controllers.Ficha ficha)
+        // funcion encargada de colocar las fichas de los bots
+        public  void colocarFichasBots(int x, int y,Controllers.Ficha ficha,bool flag)
         {
-            Button boton = (Button)tableLayoutPanel1.GetControlFromPosition(x,y);
+            //if (ultimaFicha != null)
+            //{
+            //    ultimaFicha.BackColor = Color.White;
+            //}
+            Button boton = (Button)tableLayoutPanel1.GetControlFromPosition(y,x);
             boton.Text = ficha.forma;
-           // boton.ForeColor = ficha.color; // filtrar color
+            switch (ficha.color)
+            {
+                case "Red":
+                    boton.ForeColor = Color.Red;
+                    break;
+                case "Yellow":
+                    boton.ForeColor = Color.Yellow;
+                    break;
+                case "Green":
+                    boton.ForeColor = Color.Green;
+                    break;
+                case "Cyan":
+                   boton.ForeColor = Color.Cyan;
+                    break;
+                case "Magenta":
+                    boton.ForeColor = Color.Magenta;
+                    break;
+                case "Blue":
+                    boton.ForeColor = Color.Blue;
+                    break;
+
+            }
+            boton.TextAlign = ContentAlignment.MiddleCenter;
+            boton.Font = new Font(boton.Font.FontFamily, 30);
+            if (flag)
+            {
+                boton.BackColor = Color.LightGreen;
+            }
+            else boton.BackColor = Color.White;
+
+
         }
 
         public void puntajeHumano()
@@ -154,9 +191,7 @@ namespace Qwirkle_DD
         }
 
         public void colocarFichasSimple()
-        {
-            
-            
+        {   
             int i = 0;
             foreach (Controllers.Ficha ficha in fichasJugador2)
             {
@@ -405,16 +440,74 @@ namespace Qwirkle_DD
 
         }
 
+
+        // 0=humano, 1=basico, 2=inteligente
         private void jugar_Click(object sender, EventArgs e)
         {
-            if(jugador == 2) { jugador = 0; juego.cambiarTurno(jugador);
-            }
-            else
+            switch (jugador)
             {
-                jugador += 1;
-                juego.cambiarTurno(jugador);
+                case 0:
+                    juego.cambiarTurno(jugador);
+                    jugador += 1;
+                    break;
+
+                case 1:
+                    juego.cambiarTurno(jugador);
+                    jugador += 1;
+                    printTablero();
+                    fichasJugador2 = juego.GetJugadores()[1].fichasJugador;
+                    colocarFichasSimple();
+                    break;
+
+                case 2:
+                    juego.cambiarTurno(jugador);
+                    jugador = 0;
+                    printTablero();
+                    fichasJugador1 = juego.GetJugadores()[2].fichasJugador;
+                    colocarFichasBrilliant();
+                    break;
+                default:
+                    break;
             }
             labelJugadorActual.Text = juego.GetJugador().nombre;
+
+
+
+
+
+
+        }
+
+        public void printTablero()
+        {
+            DataTable tablero = juego.GetTablero();
+            DataTable tableroAnterior = juego.tableroAnterior;
+            string p = "";
+            //List<Controllers.Ficha> listaFichas;
+            for (int i = 0; i < 30; i++)
+                for (int j = 0; j < 30; j++)
+                {
+                    if (!tablero.Rows[i][j].ToString().Equals(tableroAnterior.Rows[i][j].ToString()))
+                    {
+                        Controllers.Ficha fichaObj = JsonConvert.DeserializeObject<Controllers.Ficha>(tablero.Rows[i][j].ToString());
+                        colocarFichasBots(i, j, fichaObj, true);
+                    }
+                    else
+                    {
+                        if (!tablero.Rows[i][j].ToString().Equals("0"))
+                        {
+                            Controllers.Ficha fichaObj = JsonConvert.DeserializeObject<Controllers.Ficha>(tablero.Rows[i][j].ToString());
+                            colocarFichasBots(i, j, fichaObj, false);
+
+                        }
+                    }
+                    
+                    
+                }
+
+
+
+
         }
 
         private void puntosBB_Click(object sender, EventArgs e)

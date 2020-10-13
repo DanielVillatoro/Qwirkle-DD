@@ -13,13 +13,15 @@ namespace Qwirkle_DD.Controllers
         //self._board = []
         List<Controllers.Jugador> jugadores = new List<Controllers.Jugador>();
         List<Controllers.Ficha> bolsaTotalFichas = new List<Controllers.Ficha>();
-        DataTable tablero = Controllers.Tablero.GetTablero();
-        DataTable tableroAnterior = Controllers.Tablero.GetTablero();
+        DataTable tablero { get; set; }
+        public DataTable tableroAnterior { get; set; }//= Controllers.Tablero.GetTablero();
         List<Pos> _plays = new List<Pos>();
         Controllers.Jugador jugadorActual = null;
 
         public void IniciaJuego()
         {
+            tablero = Tablero.GetTablero();
+            tableroAnterior = tablero.Copy();
             bolsaTotalFichas = Controllers.BolsaFicha.GetBolsaFichas();
             Controllers.Jugador jugador1 = new Controllers.Jugador();
             jugador1.nombre = "Humano";
@@ -37,6 +39,8 @@ namespace Qwirkle_DD.Controllers
             jugadores.Add(jugador1);
             jugadores.Add(jugador2);
 
+            //jugador3.fichasjugador[0].color;
+
             jugador3.fichasJugador[0].color = "Yellow";
             jugador3.fichasJugador[0].forma = "◆";
 
@@ -45,11 +49,24 @@ namespace Qwirkle_DD.Controllers
 
             jugador3.fichasJugador[2].color = "Green";
             jugador3.fichasJugador[2].forma = "◆";
-
+          
             jugadores.Add(jugador3);
             //jugadores.Add(jugadorPrueba);
             int turno = 0;
-            pruebaColocaFichasBot();
+            Ficha ficha1 = new Ficha();
+            ficha1.color = "Red";
+            ficha1.forma = "▲";
+            string jsonString = JsonConvert.SerializeObject(ficha1);
+            tablero.Rows[15][15] = jsonString;
+            ficha1.color = "Red";
+            ficha1.forma = "◆";
+            tablero.Rows[14][15] = JsonConvert.SerializeObject(ficha1);
+            ficha1.color = "Blue";
+            ficha1.forma = "◆";
+            tablero.Rows[14][14] = JsonConvert.SerializeObject(ficha1);
+            tableroAnterior = tablero.Copy();
+            //pruebaColocaFichasBot();
+
             //ColocaFicha(jugador1.fichasJugador[1], 0, 0);
             //while (true){
             //    if (turno == 3){turno = 0;}
@@ -70,13 +87,14 @@ namespace Qwirkle_DD.Controllers
             //jugadorActual = jugador1;
         }
 
-
         public void cambiarTurno(int pos)
         {
             jugadorActual = jugadores[pos];
+            tableroAnterior = tablero.Copy();
+            _plays.Clear();
             if (pos == 0)
             {
-                
+
             }
             if (pos == 1)
             {
@@ -136,6 +154,7 @@ namespace Qwirkle_DD.Controllers
             {
                 //Console.WriteLine("Error");
                 tablero.Rows[x][y] = JsonConvert.SerializeObject(piece);
+                tablero = tablero.Copy();
                 List<Ficha> tiles = jugadores[1].fichasJugador;
                 int posI = tiles.IndexOf(piece);
                 tiles.RemoveAt(posI);
@@ -143,7 +162,9 @@ namespace Qwirkle_DD.Controllers
                 pos.x = x;
                 pos.y = y;
                 _plays.Add(pos);
-                jugadores[1].puntaje +=score();
+                jugadores[1].puntaje += score();
+                jugadores[1].puntosUltimaJugada = score();
+                //Qwirkle.colocarFichasBots(x, y, piece);
                 int stop = 0;
             }
 
@@ -158,6 +179,7 @@ namespace Qwirkle_DD.Controllers
             {
                 //Console.WriteLine("Error");
                 tablero.Rows[x][y] = JsonConvert.SerializeObject(piece);
+                tablero = tablero.Copy();
                 //List<Ficha> tiles = jugadores[2].fichasJugador;
                 //int pos = tiles.IndexOf(piece);
                 //tiles.RemoveAt(pos);
@@ -221,7 +243,7 @@ namespace Qwirkle_DD.Controllers
                 tiles.Clear();
                 foreach (var ficha1 in Bot.fichasJugador)
                 {
-                    tiles.Add(new Ficha { color=ficha1.color,forma=ficha1.forma});
+                    tiles.Add(new Ficha { color = ficha1.color, forma = ficha1.forma });
                 }
 
                 for (int i = 0; i < tiles.Count; i++)
@@ -232,7 +254,7 @@ namespace Qwirkle_DD.Controllers
                         string[] arrayPos = item.Split(',');
                         int x = Convert.ToInt32(arrayPos[0]);
                         int y = Convert.ToInt32(arrayPos[1]);
-                        juegoValido=PlayBotSmart(tiles[i], x, y);
+                        juegoValido = PlayBotSmart(tiles[i], x, y);
                         if (juegoValido)
                         {
                             Jugada jugada = new Jugada();
@@ -271,7 +293,7 @@ namespace Qwirkle_DD.Controllers
                                     string[] arrayPos2 = item2.Split(',');
                                     int x2 = Convert.ToInt32(arrayPos2[0]);
                                     int y2 = Convert.ToInt32(arrayPos2[1]);
-                                    juegoValido=PlayBotSmart(tiles_remaining[j], x2, y2);
+                                    juegoValido = PlayBotSmart(tiles_remaining[j], x2, y2);
                                     if (juegoValido)
                                     {
                                         Jugada jugada2 = new Jugada();
@@ -293,30 +315,35 @@ namespace Qwirkle_DD.Controllers
                 }
                 reset_table();
             }
-            List<Jugada> mejorJugada = plays[0];
-            foreach (var item in plays)
+            if (plays.Count > 0)
             {
-                if (item[0].puntaje > mejorJugada[0].puntaje)
+                List<Jugada> mejorJugada = plays[0];
+                foreach (var item in plays)
                 {
-                    mejorJugada = item;
-                }
-            }
-
-            foreach (var item in mejorJugada)
-            {
-                PlayBotSmart(item.ficha, item.x, item.y);
-                int count=0;
-                foreach (var pos in Bot.fichasJugador)
-                {
-                    if(pos.color.Equals(item.ficha.color) && pos.forma.Equals(item.ficha.forma))
+                    if (item[0].puntaje > mejorJugada[0].puntaje)
                     {
-                        Bot.fichasJugador.RemoveAt(count);
-                        break;
+                        mejorJugada = item;
                     }
-                    count += 1;
                 }
+
+                foreach (var item in mejorJugada)
+                {
+                    PlayBotSmart(item.ficha, item.x, item.y);
+                    //colocarFichasBots(item.x, item.y, item.ficha);
+                    int count = 0;
+                    foreach (var pos in Bot.fichasJugador)
+                    {
+                        if (pos.color.Equals(item.ficha.color) && pos.forma.Equals(item.ficha.forma))
+                        {
+                            Bot.fichasJugador.RemoveAt(count);
+                            break;
+                        }
+                        count += 1;
+                    }
+                }
+                Bot.puntosUltimaJugada = mejorJugada[0].puntaje;
             }
-            int stop = 0;
+            //int stop = 0;
         }
 
         public List<List<string>> ValidacionJuegoTurno()
@@ -381,7 +408,7 @@ namespace Qwirkle_DD.Controllers
             List<Pos> plays = new List<Pos>();
             foreach (var item in _plays)
             {
-                plays.Add(new Pos {x=item.x,y=item.y  });
+                plays.Add(new Pos { x = item.x, y = item.y });
             }
 
             //Validate the play connects to an existing play
@@ -620,12 +647,13 @@ namespace Qwirkle_DD.Controllers
                     max_x += 1;
                 }
 
-                if(min_x != max_x)
+                if (min_x != max_x)
                 {
                     int qwirkle_count = 0;
 
                     IEnumerable<int> rango = Enumerable.Range(min_x, max_x + 1);
-                    foreach (int t_x in rango){
+                    foreach (int t_x in rango)
+                    {
                         bool boolscored_horizontally = false;
                         bool boolscored_horizontally2 = false;
                         foreach (var item in scored_horizontally)
@@ -664,12 +692,12 @@ namespace Qwirkle_DD.Controllers
                     }
                 }
                 int min_y = y;
-                while (min_y - 1 >= 0 && !GetBoolPosTablero(x, min_y-1))
+                while (min_y - 1 >= 0 && !GetBoolPosTablero(x, min_y - 1))
                 {
                     min_y -= 1;
                 }
                 int max_y = y;
-                while (max_y + 1 < 30 && !GetBoolPosTablero(x, max_y+1))
+                while (max_y + 1 < 30 && !GetBoolPosTablero(x, max_y + 1))
                 {
                     max_y += 1;
                 }
