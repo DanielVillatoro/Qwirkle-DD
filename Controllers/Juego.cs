@@ -74,6 +74,20 @@ namespace Qwirkle_DD.Controllers
         public void cambiarTurno(int pos)
         {
             jugadorActual = jugadores[pos];
+            if (pos == 0)
+            {
+                
+            }
+            if (pos == 1)
+            {
+                ColocaFichaBotDummie();
+                jugadores[pos].setFichasJugador(GetBolsaTotalFichas());
+            }
+            if (pos == 2)
+            {
+                ColocaFichaBotSmart();
+                jugadores[pos].setFichasJugador(GetBolsaTotalFichas());
+            }
         }
 
         public void ColocaFicha(Ficha ficha, int X, int Y)
@@ -105,13 +119,14 @@ namespace Qwirkle_DD.Controllers
             ficha1.color = "Blue";
             ficha1.forma = "◆";
             tablero.Rows[14][14] = JsonConvert.SerializeObject(ficha1);
-
-            //ficha1.color = "RED";
-            //ficha1.forma = "◆";
             tableroAnterior = tablero.Copy();
-            //tableroAnterior = tablero;
             ColocaFichaBotSmart();
-            //ColocaFichaBotDummie();
+            tableroAnterior = tablero.Copy();
+            _plays.Clear();
+            ColocaFichaBotDummie();
+            string aa = "a";
+            jugadores[1].setFichasJugador(GetBolsaTotalFichas());
+            jugadores[2].setFichasJugador(GetBolsaTotalFichas());
             string a = "a";
         }
 
@@ -122,8 +137,13 @@ namespace Qwirkle_DD.Controllers
                 //Console.WriteLine("Error");
                 tablero.Rows[x][y] = JsonConvert.SerializeObject(piece);
                 List<Ficha> tiles = jugadores[1].fichasJugador;
-                int pos = tiles.IndexOf(piece);
-                tiles.RemoveAt(pos);
+                int posI = tiles.IndexOf(piece);
+                tiles.RemoveAt(posI);
+                Pos pos = new Pos();
+                pos.x = x;
+                pos.y = y;
+                _plays.Add(pos);
+                jugadores[1].puntaje +=score();
                 int stop = 0;
             }
 
@@ -132,7 +152,7 @@ namespace Qwirkle_DD.Controllers
             //self._pad_board()
         }
 
-        public void PlayBotSmart(Ficha piece, int x, int y)
+        public bool PlayBotSmart(Ficha piece, int x, int y)
         {
             if (ValidacionJuegoTurno_Aux(piece, x, y))
             {
@@ -145,7 +165,11 @@ namespace Qwirkle_DD.Controllers
                 pos.x = x;
                 pos.y = y;
                 _plays.Add(pos);
-                int stop = 0;
+                return true;
+            }
+            else
+            {
+                return false;
             }
 
             //self._board[y][x] = piece
@@ -175,21 +199,8 @@ namespace Qwirkle_DD.Controllers
                     int x = Convert.ToInt32(arrayPos[0]);
                     int y = Convert.ToInt32(arrayPos[1]);
                     PlayBotDummie(tiles[i], x, y);
-                    //                plays.append({
-                    //                    'plays': [(x, y, tiles[i])],
-                    //                    'score': board.score()
-                    //})
                     plays.Add(x + "," + y);
-                    //tiles_remaining = tiles;
-                    //tiles_remaining.RemoveAt(i);
-                    //break;
-                    //}
-                    //catch
-                    //{
-                    //    //break;
-                    //}
                 }
-                //board.reset_turn()
             }
         }
 
@@ -203,40 +214,45 @@ namespace Qwirkle_DD.Controllers
             List<string> valid_starts = valores[0];
             List<Ficha> tiles_remaining = new List<Ficha>();
             List<Ficha> tiles = new List<Ficha>();
+            bool juegoValido;
             bool tile_played;
             foreach (var item in valid_starts)
             {
                 tiles.Clear();
                 foreach (var ficha1 in Bot.fichasJugador)
                 {
-                    tiles.Add(ficha1);
+                    tiles.Add(new Ficha { color=ficha1.color,forma=ficha1.forma});
                 }
+
                 for (int i = 0; i < tiles.Count; i++)
                 {
                     tile_played = false;
                     try
                     {
-                        Jugada jugada = new Jugada();
                         string[] arrayPos = item.Split(',');
                         int x = Convert.ToInt32(arrayPos[0]);
                         int y = Convert.ToInt32(arrayPos[1]);
-                        PlayBotSmart(tiles[i], x, y);
-                        jugada.x = x;
-                        jugada.y = y;
-                        jugada.ficha = tiles[i];
-                        jugada.puntaje = score();
-                        List<Jugada> arrayPlay = new List<Jugada>();
-                        arrayPlay.Add(jugada);
-                        plays.Add(arrayPlay);
-                        //tiles_remaining.CopyTo(tiles);
-                        tiles_remaining.Clear();
-                        foreach (var ficha in tiles)
+                        juegoValido=PlayBotSmart(tiles[i], x, y);
+                        if (juegoValido)
                         {
-                            tiles_remaining.Add(new Ficha { color = ficha.color, forma = ficha.forma });
+                            Jugada jugada = new Jugada();
+                            jugada.x = x;
+                            jugada.y = y;
+                            jugada.ficha = tiles[i];
+                            jugada.puntaje = score();
+                            List<Jugada> arrayPlay = new List<Jugada>();
+                            arrayPlay.Add(jugada);
+                            plays.Add(arrayPlay);
+                            //tiles_remaining.CopyTo(tiles);
+                            tiles_remaining.Clear();
+                            foreach (var ficha in tiles)
+                            {
+                                tiles_remaining.Add(new Ficha { color = ficha.color, forma = ficha.forma });
+                            }
+                            //tiles_remaining = Bot.fichasJugador;
+                            tiles_remaining.RemoveAt(i);
+                            tile_played = true;
                         }
-                        //tiles_remaining = Bot.fichasJugador;
-                        tiles_remaining.RemoveAt(i);
-                        tile_played = true;
 
                     }
                     catch
@@ -255,15 +271,18 @@ namespace Qwirkle_DD.Controllers
                                     string[] arrayPos2 = item2.Split(',');
                                     int x2 = Convert.ToInt32(arrayPos2[0]);
                                     int y2 = Convert.ToInt32(arrayPos2[1]);
-                                    PlayBotSmart(tiles_remaining[j], x2, y2);
-                                    Jugada jugada2 = new Jugada();
-                                    jugada2.x = x2;
-                                    jugada2.y = y2;
-                                    jugada2.ficha = tiles_remaining[j];
-                                    jugada2.puntaje = score();
-                                    plays.Last().Add(jugada2);
-                                    tiles_remaining.RemoveAt(j);
-                                    tile_played = true;
+                                    juegoValido=PlayBotSmart(tiles_remaining[j], x2, y2);
+                                    if (juegoValido)
+                                    {
+                                        Jugada jugada2 = new Jugada();
+                                        jugada2.x = x2;
+                                        jugada2.y = y2;
+                                        jugada2.ficha = tiles_remaining[j];
+                                        jugada2.puntaje = score();
+                                        plays.Last().Add(jugada2);
+                                        tiles_remaining.RemoveAt(j);
+                                        tile_played = true;
+                                    }
                                     break;
                                 }
                                 catch
@@ -286,6 +305,16 @@ namespace Qwirkle_DD.Controllers
             foreach (var item in mejorJugada)
             {
                 PlayBotSmart(item.ficha, item.x, item.y);
+                int count=0;
+                foreach (var pos in Bot.fichasJugador)
+                {
+                    if(pos.color.Equals(item.ficha.color) && pos.forma.Equals(item.ficha.forma))
+                    {
+                        Bot.fichasJugador.RemoveAt(count);
+                        break;
+                    }
+                    count += 1;
+                }
             }
             int stop = 0;
         }
@@ -578,7 +607,7 @@ namespace Qwirkle_DD.Controllers
             foreach (var play in _plays)
             {
                 int x = play.x;
-                int y = y = play.y;
+                int y = play.y;
 
                 int min_x = x;
                 while (min_x - 1 >= 0 && !GetBoolPosTablero(min_x - 1, y))
