@@ -14,7 +14,7 @@ namespace Qwirkle_DD.Controllers
         List<Controllers.Jugador> jugadores = new List<Controllers.Jugador>();
         List<Controllers.Ficha> bolsaTotalFichas = new List<Controllers.Ficha>();
         DataTable tablero { get; set; }
-        DataTable tableroAnterior { get; set; }//= Controllers.Tablero.GetTablero();
+        public DataTable tableroAnterior { get; set; }//= Controllers.Tablero.GetTablero();
         List<Pos> _plays = new List<Pos>();
         Controllers.Jugador jugadorActual = null;
 
@@ -63,7 +63,7 @@ namespace Qwirkle_DD.Controllers
             ficha1.forma = "◆";
             tablero.Rows[14][14] = JsonConvert.SerializeObject(ficha1);
             tableroAnterior = tablero.Copy();
-            pruebaColocaFichasBot();
+            //pruebaColocaFichasBot();
 
             //ColocaFicha(jugador1.fichasJugador[1], 0, 0);
             //while (true){
@@ -175,7 +175,6 @@ namespace Qwirkle_DD.Controllers
         {
             if (ValidacionJuegoTurno_Aux(piece, x, y))
             {
-                //Console.WriteLine("Error");
                 tablero.Rows[x][y] = JsonConvert.SerializeObject(piece);
                 tablero = tablero.Copy();
                 //List<Ficha> tiles = jugadores[2].fichasJugador;
@@ -318,12 +317,11 @@ namespace Qwirkle_DD.Controllers
                 List<Jugada> mejorJugada = plays[0];
                 foreach (var item in plays)
                 {
-                    if (item[0].puntaje > mejorJugada[0].puntaje)
+                    if (item.Last().puntaje > mejorJugada.Last().puntaje)
                     {
                         mejorJugada = item;
                     }
                 }
-
                 foreach (var item in mejorJugada)
                 {
                     PlayBotSmart(item.ficha, item.x, item.y);
@@ -339,7 +337,8 @@ namespace Qwirkle_DD.Controllers
                         count += 1;
                     }
                 }
-                Bot.puntosUltimaJugada = mejorJugada[0].puntaje;
+                Bot.puntaje+= mejorJugada.Last().puntaje;
+                Bot.puntosUltimaJugada = mejorJugada.Last().puntaje;
             }
             int stop = 0;
         }
@@ -649,8 +648,11 @@ namespace Qwirkle_DD.Controllers
                 {
                     int qwirkle_count = 0;
 
-                    IEnumerable<int> rango = Enumerable.Range(min_x, max_x + 1);
-                    foreach (int t_x in rango)
+                    IEnumerable<int> rango = Enumerable.Range(min_x, (max_x + 1)-min_x);
+                    List<int> range = rango.ToList();
+                    int t_x = range[0];
+                    //foreach (int t_x in range)
+                    while(t_x<range.Last())
                     {
                         bool boolscored_horizontally = false;
                         bool boolscored_horizontally2 = false;
@@ -683,6 +685,7 @@ namespace Qwirkle_DD.Controllers
                                 scored_horizontally.Add(pos2);
                             }
                         }
+                        t_x+=1;
                     }
                     if (qwirkle_count == 6)
                     {
@@ -704,8 +707,11 @@ namespace Qwirkle_DD.Controllers
                 {
                     int qwirkle_count = 0;
 
-                    IEnumerable<int> rango = Enumerable.Range(min_y, max_y + 1);
-                    foreach (int t_y in rango)
+                    IEnumerable<int> rango = Enumerable.Range(min_y, (max_y + 1)- min_y);
+                    List<int> range = rango.ToList();
+                    int t_y = range[0];
+                    //foreach (int t_y in rango)
+                    while (t_y<range.Last())
                     {
                         bool boolscored_vertically = false;
                         bool boolscored_vertically2 = false;
@@ -738,6 +744,7 @@ namespace Qwirkle_DD.Controllers
                                 scored_vertically.Add(pos2);
                             }
                         }
+                        t_y += 1;
                     }
                     if (qwirkle_count == 6)
                     {
