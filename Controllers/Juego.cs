@@ -14,7 +14,7 @@ namespace Qwirkle_DD.Controllers
         List<Controllers.Jugador> jugadores = new List<Controllers.Jugador>();
         List<Controllers.Ficha> bolsaTotalFichas = new List<Controllers.Ficha>();
         DataTable tablero { get; set; }
-        public DataTable tableroAnterior { get; set; }//= Controllers.Tablero.GetTablero();
+        DataTable tableroAnterior { get; set; }//= Controllers.Tablero.GetTablero();
         List<Pos> _plays = new List<Pos>();
         Controllers.Jugador jugadorActual = null;
 
@@ -39,8 +39,6 @@ namespace Qwirkle_DD.Controllers
             jugadores.Add(jugador1);
             jugadores.Add(jugador2);
 
-            //jugador3.fichasjugador[0].color;
-
             jugador3.fichasJugador[0].color = "Yellow";
             jugador3.fichasJugador[0].forma = "◆";
 
@@ -49,7 +47,7 @@ namespace Qwirkle_DD.Controllers
 
             jugador3.fichasJugador[2].color = "Green";
             jugador3.fichasJugador[2].forma = "◆";
-          
+
             jugadores.Add(jugador3);
             //jugadores.Add(jugadorPrueba);
             int turno = 0;
@@ -65,7 +63,7 @@ namespace Qwirkle_DD.Controllers
             ficha1.forma = "◆";
             tablero.Rows[14][14] = JsonConvert.SerializeObject(ficha1);
             tableroAnterior = tablero.Copy();
-            //pruebaColocaFichasBot();
+            pruebaColocaFichasBot();
 
             //ColocaFicha(jugador1.fichasJugador[1], 0, 0);
             //while (true){
@@ -139,9 +137,9 @@ namespace Qwirkle_DD.Controllers
             tablero.Rows[14][14] = JsonConvert.SerializeObject(ficha1);
             tableroAnterior = tablero.Copy();
             ColocaFichaBotSmart();
-            tableroAnterior = tablero.Copy();
-            _plays.Clear();
-            ColocaFichaBotDummie();
+            //tableroAnterior = tablero.Copy();
+            //_plays.Clear();
+            //ColocaFichaBotDummie();
             string aa = "a";
             jugadores[1].setFichasJugador(GetBolsaTotalFichas());
             jugadores[2].setFichasJugador(GetBolsaTotalFichas());
@@ -284,7 +282,7 @@ namespace Qwirkle_DD.Controllers
                     while (tile_played)
                     {
                         tile_played = false;
-                        foreach (var item2 in valid_starts)
+                        foreach (var item2 in ValidacionJuegoTurno()[0])
                         {
                             for (int j = 0; j < tiles_remaining.Count; j++)
                             {
@@ -343,7 +341,7 @@ namespace Qwirkle_DD.Controllers
                 }
                 Bot.puntosUltimaJugada = mejorJugada[0].puntaje;
             }
-            //int stop = 0;
+            int stop = 0;
         }
 
         public List<List<string>> ValidacionJuegoTurno()
