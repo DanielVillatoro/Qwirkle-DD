@@ -39,30 +39,30 @@ namespace Qwirkle_DD.Controllers
             jugadores.Add(jugador1);
             jugadores.Add(jugador2);
 
-            jugador3.fichasJugador[0].color = "Yellow";
-            jugador3.fichasJugador[0].forma = "◆";
+            //jugador3.fichasJugador[0].color = "Yellow";
+            //jugador3.fichasJugador[0].forma = "◆";
 
-            jugador3.fichasJugador[1].color = "Cyan";
-            jugador3.fichasJugador[1].forma = "◆";
+            //jugador3.fichasJugador[1].color = "Cyan";
+            //jugador3.fichasJugador[1].forma = "◆";
 
-            jugador3.fichasJugador[2].color = "Green";
-            jugador3.fichasJugador[2].forma = "◆";
+            //jugador3.fichasJugador[2].color = "Green";
+            //jugador3.fichasJugador[2].forma = "◆";
 
             jugadores.Add(jugador3);
             //jugadores.Add(jugadorPrueba);
-            int turno = 0;
-            Ficha ficha1 = new Ficha();
-            ficha1.color = "Red";
-            ficha1.forma = "▲";
-            string jsonString = JsonConvert.SerializeObject(ficha1);
-            tablero.Rows[15][15] = jsonString;
-            ficha1.color = "Red";
-            ficha1.forma = "◆";
-            tablero.Rows[14][15] = JsonConvert.SerializeObject(ficha1);
-            ficha1.color = "Blue";
-            ficha1.forma = "◆";
-            tablero.Rows[14][14] = JsonConvert.SerializeObject(ficha1);
-            tableroAnterior = tablero.Copy();
+            //int turno = 0;
+            //Ficha ficha1 = new Ficha();
+            //ficha1.color = "Red";
+            //ficha1.forma = "▲";
+            //string jsonString = JsonConvert.SerializeObject(ficha1);
+            //tablero.Rows[15][15] = jsonString;
+            //ficha1.color = "Red";
+            //ficha1.forma = "◆";
+            //tablero.Rows[14][15] = JsonConvert.SerializeObject(ficha1);
+            //ficha1.color = "Blue";
+            //ficha1.forma = "◆";
+            //tablero.Rows[14][14] = JsonConvert.SerializeObject(ficha1);
+            //tableroAnterior = tablero.Copy();
             //pruebaColocaFichasBot();
 
             //ColocaFicha(jugador1.fichasJugador[1], 0, 0);
@@ -106,10 +106,32 @@ namespace Qwirkle_DD.Controllers
             }
         }
 
+        //public void ColocaFicha(Ficha ficha, int X, int Y)
+        //{
+        //    string jsonString = JsonConvert.SerializeObject(ficha);
+        //    tablero.Rows[X][Y] = jsonString;
+        //    for (int i = 0; i < jugadores[0].fichasJugador.Count(); i++)
+        //    {
+        //        if (jugadores[0].fichasJugador[i].color.Equals(ficha.color) && jugadores[0].fichasJugador[i].forma.Equals(ficha.forma))
+        //        {
+        //            jugadores[0].fichasJugador.RemoveAt(i);
+        //            jugadores[0].setFichasJugador(bolsaTotalFichas);
+        //            int d = 1;
+        //        }
+        //        int stop = 1;
+        //    }
+        //}
+
         public void ColocaFicha(Ficha ficha, int X, int Y)
         {
             string jsonString = JsonConvert.SerializeObject(ficha);
             tablero.Rows[X][Y] = jsonString;
+            Pos pos = new Pos();
+            pos.x = X;
+            pos.y = Y;
+            _plays.Add(pos);
+            jugadores[0].puntaje += score();
+            jugadores[0].puntosUltimaJugada = score();
             for (int i = 0; i < jugadores[0].fichasJugador.Count(); i++)
             {
                 if (jugadores[0].fichasJugador[i].color.Equals(ficha.color) && jugadores[0].fichasJugador[i].forma.Equals(ficha.forma))

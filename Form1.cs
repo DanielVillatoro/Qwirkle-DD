@@ -158,6 +158,10 @@ namespace Qwirkle_DD
 
         public void colocarFichasBrilliant()
         {
+            foreach (Button boton in botonesBrilliant)
+            {
+                boton.Text = "";
+            }
             int i = 0;
             foreach (Controllers.Ficha ficha in fichasJugador1)
             {
@@ -191,7 +195,11 @@ namespace Qwirkle_DD
         }
 
         public void colocarFichasSimple()
-        {   
+        {
+            foreach (Button boton in botonesSimple)
+            {
+                boton.Text = "";
+            }
             int i = 0;
             foreach (Controllers.Ficha ficha in fichasJugador2)
             {
@@ -227,6 +235,10 @@ namespace Qwirkle_DD
 
         public void colocarFichasHumano()
         {
+            foreach (Button boton in botonesHumano)
+            {
+                boton.Text = "";
+            }
             int i = 0;
             foreach (Controllers.Ficha ficha in fichasJugador3)
             {
@@ -267,7 +279,7 @@ namespace Qwirkle_DD
         
             fichasJugador3 = juego.GetJugadores()[0].fichasJugador;
             colocarFichasHumano();
-            string p = "";
+            string p= "";
         }
 
         public void guardarBotones()
@@ -298,9 +310,14 @@ namespace Qwirkle_DD
         private void pictureBox2_Click(object sender, EventArgs e)
         {
 
-            //FormBorderStyle = FormBorderStyle.None;
-            //WindowState = FormWindowState.Maximized;
-            //TopMost = true;
+
+            FormBorderStyle = FormBorderStyle.None;
+            WindowState = FormWindowState.Maximized;
+            TopMost = true;
+            timer1.Enabled = true;
+            loadPanel.Visible = true;
+
+
             panel1.Visible= false;
             panel2.Visible = true;
             int i = 0; int j = 0;
@@ -352,6 +369,9 @@ namespace Qwirkle_DD
                 TopMost = false;
                 panel1.Visible = true;
                 panel2.Visible = false;
+
+                timer1.Enabled = true;
+                pbr1.Value = 10;
             }
         }
 
@@ -432,6 +452,8 @@ namespace Qwirkle_DD
 
             colocadasHumano.Add(button);
             actualizarFichasHumano();
+            puntajeHumano();
+            validarGane();
 
         }
 
@@ -440,6 +462,25 @@ namespace Qwirkle_DD
 
         }
 
+
+        public void validarGane()
+        {
+            List<Controllers.Ficha> f1 = juego.GetJugadores()[2].fichasJugador;
+            List<Controllers.Ficha> f2 = juego.GetJugadores()[1].fichasJugador;
+            List<Controllers.Ficha> f3 = juego.GetJugadores()[0].fichasJugador;
+
+            if (f1.Count==0 || f2.Count == 0 || f3.Count == 0)
+            {
+                string jugadorG = "";
+                double puntosH = juego.GetJugadores()[0].puntaje;
+                double puntosS = juego.GetJugadores()[1].puntaje;
+                double puntosI = juego.GetJugadores()[2].puntaje;
+                if (puntosH > puntosS && puntosH > puntosI) jugadorG = "Jugador Humano" ;
+                if (puntosS > puntosI && puntosS > puntosH) jugadorG = "Simple Bot";
+                if (puntosI > puntosS && puntosI > puntosH) jugadorG = "Brilliant Bot";
+                MessageBox.Show("El ganador del juego es: "+jugadorG,"Juego terminado");
+            }
+        }
 
         // 0=humano, 1=basico, 2=inteligente
         private void jugar_Click(object sender, EventArgs e)
@@ -470,9 +511,10 @@ namespace Qwirkle_DD
                     break;
             }
             labelJugadorActual.Text = juego.GetJugador().nombre;
-
-
-
+            puntajeBrilliant();
+            puntajeHumano();
+            puntajeSimple();
+            validarGane();
 
 
 
@@ -518,6 +560,15 @@ namespace Qwirkle_DD
         private void panel5_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if (pbr1.Value < 100)
+            {
+                pbr1.Value+=3;
+            }
+            else { timer1.Enabled = false;  loadPanel.Visible = false; }
         }
     }
 }

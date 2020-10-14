@@ -29,11 +29,17 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.labelJugadorActual = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.jugar = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.ultimaHP = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             this.puntosH = new System.Windows.Forms.Label();
             this.fichasHuman = new System.Windows.Forms.TableLayoutPanel();
             this.fichaH3 = new System.Windows.Forms.Button();
@@ -45,6 +51,8 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.ultimaSB = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             this.puntosSB = new System.Windows.Forms.Label();
             this.fichasSimpleBot = new System.Windows.Forms.TableLayoutPanel();
             this.fichaS3 = new System.Windows.Forms.Button();
@@ -56,6 +64,8 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.ultimaBB = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.puntosBB = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.fichasBrillianBot = new System.Windows.Forms.TableLayoutPanel();
@@ -968,15 +978,10 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.helpProvider1 = new System.Windows.Forms.HelpProvider();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.jugar = new System.Windows.Forms.Button();
-            this.label13 = new System.Windows.Forms.Label();
-            this.labelJugadorActual = new System.Windows.Forms.Label();
-            this.ultimaBB = new System.Windows.Forms.Label();
-            this.ultimaHP = new System.Windows.Forms.Label();
-            this.ultimaSB = new System.Windows.Forms.Label();
+            this.loadPanel = new System.Windows.Forms.Panel();
+            this.pbr1 = new System.Windows.Forms.ProgressBar();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel1.SuspendLayout();
@@ -988,6 +993,7 @@
             this.panel3.SuspendLayout();
             this.fichasBrillianBot.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            this.loadPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -1034,6 +1040,39 @@
             this.panel2.TabIndex = 4;
             this.panel2.Visible = false;
             // 
+            // labelJugadorActual
+            // 
+            this.labelJugadorActual.AutoSize = true;
+            this.labelJugadorActual.Font = new System.Drawing.Font("The Bold Font", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelJugadorActual.Location = new System.Drawing.Point(334, 887);
+            this.labelJugadorActual.Name = "labelJugadorActual";
+            this.labelJugadorActual.Size = new System.Drawing.Size(0, 25);
+            this.labelJugadorActual.TabIndex = 8;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("The Bold Font", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(34, 880);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(272, 35);
+            this.label13.TabIndex = 8;
+            this.label13.Text = "Jugada hecha por:";
+            // 
+            // jugar
+            // 
+            this.jugar.BackColor = System.Drawing.Color.White;
+            this.jugar.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.jugar.ForeColor = System.Drawing.Color.Green;
+            this.jugar.Location = new System.Drawing.Point(43, 947);
+            this.jugar.Name = "jugar";
+            this.jugar.Size = new System.Drawing.Size(231, 51);
+            this.jugar.TabIndex = 4;
+            this.jugar.Text = " Continuar ▶";
+            this.jugar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.jugar.UseVisualStyleBackColor = false;
+            this.jugar.Click += new System.EventHandler(this.jugar_Click);
+            // 
             // panel5
             // 
             this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -1048,6 +1087,26 @@
             this.panel5.Size = new System.Drawing.Size(690, 259);
             this.panel5.TabIndex = 3;
             this.panel5.Paint += new System.Windows.Forms.PaintEventHandler(this.panel5_Paint);
+            // 
+            // ultimaHP
+            // 
+            this.ultimaHP.AutoSize = true;
+            this.ultimaHP.Font = new System.Drawing.Font("The Bold Font", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ultimaHP.Location = new System.Drawing.Point(354, 116);
+            this.ultimaHP.Name = "ultimaHP";
+            this.ultimaHP.Size = new System.Drawing.Size(21, 25);
+            this.ultimaHP.TabIndex = 6;
+            this.ultimaHP.Text = "1";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("The Bold Font", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(91, 116);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(237, 25);
+            this.label12.TabIndex = 6;
+            this.label12.Text = "Puntos última jugada:";
             // 
             // puntosH
             // 
@@ -1174,6 +1233,27 @@
             this.panel4.Size = new System.Drawing.Size(690, 245);
             this.panel4.TabIndex = 2;
             // 
+            // ultimaSB
+            // 
+            this.ultimaSB.AutoSize = true;
+            this.ultimaSB.Font = new System.Drawing.Font("The Bold Font", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ultimaSB.Location = new System.Drawing.Point(354, 100);
+            this.ultimaSB.Name = "ultimaSB";
+            this.ultimaSB.Size = new System.Drawing.Size(21, 25);
+            this.ultimaSB.TabIndex = 7;
+            this.ultimaSB.Text = "1";
+            this.ultimaSB.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("The Bold Font", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(91, 100);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(237, 25);
+            this.label11.TabIndex = 5;
+            this.label11.Text = "Puntos última jugada:";
+            // 
             // puntosSB
             // 
             this.puntosSB.AutoSize = true;
@@ -1298,6 +1378,26 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(690, 255);
             this.panel3.TabIndex = 1;
+            // 
+            // ultimaBB
+            // 
+            this.ultimaBB.AutoSize = true;
+            this.ultimaBB.Font = new System.Drawing.Font("The Bold Font", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ultimaBB.Location = new System.Drawing.Point(354, 109);
+            this.ultimaBB.Name = "ultimaBB";
+            this.ultimaBB.Size = new System.Drawing.Size(21, 25);
+            this.ultimaBB.TabIndex = 5;
+            this.ultimaBB.Text = "1";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("The Bold Font", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(88, 109);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(237, 25);
+            this.label10.TabIndex = 4;
+            this.label10.Text = "Puntos última jugada:";
             // 
             // puntosBB
             // 
@@ -10487,99 +10587,37 @@
             this.button1.TabIndex = 0;
             this.button1.UseVisualStyleBackColor = false;
             // 
-            // label10
+            // loadPanel
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("The Bold Font", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(88, 109);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(237, 25);
-            this.label10.TabIndex = 4;
-            this.label10.Text = "Puntos última jugada:";
+            this.loadPanel.Controls.Add(this.label5);
+            this.loadPanel.Controls.Add(this.pbr1);
+            this.loadPanel.Location = new System.Drawing.Point(15, 15);
+            this.loadPanel.Name = "loadPanel";
+            this.loadPanel.Size = new System.Drawing.Size(1950, 1080);
+            this.loadPanel.TabIndex = 9;
+            this.loadPanel.Visible = false;
             // 
-            // label11
+            // pbr1
             // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("The Bold Font", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(91, 100);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(237, 25);
-            this.label11.TabIndex = 5;
-            this.label11.Text = "Puntos última jugada:";
+            this.pbr1.Location = new System.Drawing.Point(501, 401);
+            this.pbr1.Name = "pbr1";
+            this.pbr1.Size = new System.Drawing.Size(979, 25);
+            this.pbr1.TabIndex = 0;
+            this.pbr1.Value = 10;
             // 
-            // label12
+            // timer1
             // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("The Bold Font", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(91, 116);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(237, 25);
-            this.label12.TabIndex = 6;
-            this.label12.Text = "Puntos última jugada:";
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // jugar
+            // label5
             // 
-            this.jugar.BackColor = System.Drawing.Color.White;
-            this.jugar.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.jugar.ForeColor = System.Drawing.Color.Green;
-            this.jugar.Location = new System.Drawing.Point(43, 947);
-            this.jugar.Name = "jugar";
-            this.jugar.Size = new System.Drawing.Size(231, 51);
-            this.jugar.TabIndex = 4;
-            this.jugar.Text = " Continuar ▶";
-            this.jugar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.jugar.UseVisualStyleBackColor = false;
-            this.jugar.Click += new System.EventHandler(this.jugar_Click);
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("The Bold Font", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(34, 880);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(276, 34);
-            this.label13.TabIndex = 8;
-            this.label13.Text = "Turno del jugador:";
-            // 
-            // labelJugadorActual
-            // 
-            this.labelJugadorActual.AutoSize = true;
-            this.labelJugadorActual.Font = new System.Drawing.Font("The Bold Font", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelJugadorActual.Location = new System.Drawing.Point(334, 887);
-            this.labelJugadorActual.Name = "labelJugadorActual";
-            this.labelJugadorActual.Size = new System.Drawing.Size(0, 25);
-            this.labelJugadorActual.TabIndex = 8;
-            // 
-            // ultimaBB
-            // 
-            this.ultimaBB.AutoSize = true;
-            this.ultimaBB.Font = new System.Drawing.Font("The Bold Font", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ultimaBB.Location = new System.Drawing.Point(354, 109);
-            this.ultimaBB.Name = "ultimaBB";
-            this.ultimaBB.Size = new System.Drawing.Size(21, 25);
-            this.ultimaBB.TabIndex = 5;
-            this.ultimaBB.Text = "1";
-            // 
-            // ultimaHP
-            // 
-            this.ultimaHP.AutoSize = true;
-            this.ultimaHP.Font = new System.Drawing.Font("The Bold Font", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ultimaHP.Location = new System.Drawing.Point(354, 116);
-            this.ultimaHP.Name = "ultimaHP";
-            this.ultimaHP.Size = new System.Drawing.Size(21, 25);
-            this.ultimaHP.TabIndex = 6;
-            this.ultimaHP.Text = "1";
-            // 
-            // ultimaSB
-            // 
-            this.ultimaSB.AutoSize = true;
-            this.ultimaSB.Font = new System.Drawing.Font("The Bold Font", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ultimaSB.Location = new System.Drawing.Point(354, 100);
-            this.ultimaSB.Name = "ultimaSB";
-            this.ultimaSB.Size = new System.Drawing.Size(21, 25);
-            this.ultimaSB.TabIndex = 7;
-            this.ultimaSB.Text = "1";
-            this.ultimaSB.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("The Bold Font", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(793, 305);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(396, 47);
+            this.label5.TabIndex = 6;
+            this.label5.Text = "Generando tablero";
             // 
             // Qwirkle
             // 
@@ -10587,6 +10625,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1902, 1033);
+            this.Controls.Add(this.loadPanel);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.KeyPreview = true;
@@ -10609,6 +10648,8 @@
             this.panel3.PerformLayout();
             this.fichasBrillianBot.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
+            this.loadPanel.ResumeLayout(false);
+            this.loadPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -11562,6 +11603,10 @@
         private System.Windows.Forms.Label ultimaHP;
         private System.Windows.Forms.Label ultimaSB;
         private System.Windows.Forms.Label ultimaBB;
+        private System.Windows.Forms.Panel loadPanel;
+        private System.Windows.Forms.ProgressBar pbr1;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label label5;
     }
 }
 
