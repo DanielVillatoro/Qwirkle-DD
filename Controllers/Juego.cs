@@ -106,22 +106,6 @@ namespace Qwirkle_DD.Controllers
             }
         }
 
-        //public void ColocaFicha(Ficha ficha, int X, int Y)
-        //{
-        //    string jsonString = JsonConvert.SerializeObject(ficha);
-        //    tablero.Rows[X][Y] = jsonString;
-        //    for (int i = 0; i < jugadores[0].fichasJugador.Count(); i++)
-        //    {
-        //        if (jugadores[0].fichasJugador[i].color.Equals(ficha.color) && jugadores[0].fichasJugador[i].forma.Equals(ficha.forma))
-        //        {
-        //            jugadores[0].fichasJugador.RemoveAt(i);
-        //            jugadores[0].setFichasJugador(bolsaTotalFichas);
-        //            int d = 1;
-        //        }
-        //        int stop = 1;
-        //    }
-        //}
-
         public void ColocaFicha(Ficha ficha, int X, int Y)
         {
             string jsonString = JsonConvert.SerializeObject(ficha);
@@ -199,9 +183,6 @@ namespace Qwirkle_DD.Controllers
             {
                 tablero.Rows[x][y] = JsonConvert.SerializeObject(piece);
                 tablero = tablero.Copy();
-                //List<Ficha> tiles = jugadores[2].fichasJugador;
-                //int pos = tiles.IndexOf(piece);
-                //tiles.RemoveAt(pos);
                 Pos pos = new Pos();
                 pos.x = x;
                 pos.y = y;
@@ -212,10 +193,6 @@ namespace Qwirkle_DD.Controllers
             {
                 return false;
             }
-
-            //self._board[y][x] = piece
-            //self._plays.append((x, y))
-            //self._pad_board()
         }
 
         public void ColocaFichaBotDummie()
@@ -284,13 +261,11 @@ namespace Qwirkle_DD.Controllers
                             List<Jugada> arrayPlay = new List<Jugada>();
                             arrayPlay.Add(jugada);
                             plays.Add(arrayPlay);
-                            //tiles_remaining.CopyTo(tiles);
                             tiles_remaining.Clear();
                             foreach (var ficha in tiles)
                             {
                                 tiles_remaining.Add(new Ficha { color = ficha.color, forma = ficha.forma });
                             }
-                            //tiles_remaining = Bot.fichasJugador;
                             tiles_remaining.RemoveAt(i);
                             tile_played = true;
                         }
@@ -367,7 +342,6 @@ namespace Qwirkle_DD.Controllers
 
         public List<List<string>> ValidacionJuegoTurno()
         {
-            //int[,] juegosValidos;
             List<string> juegosValidos = new List<string>();
             List<string> fichasTablero = new List<string>();
             List<List<string>> valoresArray = new List<List<string>>();
@@ -430,7 +404,7 @@ namespace Qwirkle_DD.Controllers
                 plays.Add(new Pos { x = item.x, y = item.y });
             }
 
-            //Validate the play connects to an existing play
+            //Se valida si el array _plays contiene mas de una ficha, para crear la conexion.
             if (plays.Count > 0)
             {
                 bool check_horizontal = true;
@@ -447,7 +421,7 @@ namespace Qwirkle_DD.Controllers
                     }
                 }
                 bool in_plays = false;
-
+                //Verifica si existen fichas horizontalmente
                 if (check_horizontal)
                 {
                     int t_x1 = x;
@@ -477,6 +451,7 @@ namespace Qwirkle_DD.Controllers
                         }
                     }
                 }
+                //Verifica si existen fichas verticalmente
                 if (check_vertical)
                 {
                     int t_y1 = y;
@@ -544,7 +519,7 @@ namespace Qwirkle_DD.Controllers
             }
             //return true;
 
-            //# Get & Verify all the tiles adjacent vertically
+            //Obtiene y verifica las fichas verticales.
             row.Clear();
             row.Add(JsonConvert.SerializeObject(ficha));
             int t_y = y + 1;
@@ -577,12 +552,6 @@ namespace Qwirkle_DD.Controllers
                 Ficha fichaObj = JsonConvert.DeserializeObject<Ficha>(item);
                 row.Add(fichaObj);
             }
-
-            //foreach (var item in row)
-            //{
-            //    shapes.Add(item.forma);
-            //    colors.Add(item.color);
-            //}
 
             if (row.Count == 1)
             {
@@ -643,6 +612,7 @@ namespace Qwirkle_DD.Controllers
 
         public int score()
         {
+            //Si el array no contiene jugadas se asume que obtiene un puntaje de 0
             if (_plays.Count == 0)
             {
                 return 0;
